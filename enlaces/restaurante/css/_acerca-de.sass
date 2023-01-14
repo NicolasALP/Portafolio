@@ -1,0 +1,29 @@
+.acerca-de
+    .contenedor
+        overflow: visible   //overflow permite cortar todo lo que sobre a partir de un contenedor, visible para que el contenido sobrante sea visible
+        position: relative   //permite manipular la caja
+        .foto
+            width: 80%
+            position: absolute 
+            left: 0
+            top: -50px
+            z-index: 0             //para que la foto pase debajo del texto, apila
+            box-shadow: 0px 0px 15px rgba(0,0,0, .35)
+            img
+                vertical-align: top
+                width: 100% //para que la foto no se pase 
+    article
+        background: #fff
+        padding: 40px
+        width: 50%
+        position: relative      //manipula el article
+        top: 500px      //posicionará el article más abajo
+        float: right
+        z-index: 1           //para que el texto pase sobre la foto, apila
+        box-shadow: 0px 0px 15px rgba(0,0,0, .35)
+        h3
+            font-size: 50px
+            font-weight: 300
+            margin-bottom: 15px
+        p
+            line-height: 28px          //para que haya espaciado entre cada linea

@@ -1,0 +1,12 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_REFERER} !^http://nicolaslopezpasten.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://nicolaslopezpasten.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.nicolaslopezpasten.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.nicolaslopezpasten.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://nicolaslopezpasten.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://nicolaslopezpasten.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.nicolaslopezpasten.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.nicolaslopezpasten.com$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
