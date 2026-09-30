@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONI — Videojuegos Report</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/icono-oni.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="ONI, portal de videojuegos de demostración con slider, buscador en vivo, lector de artículos y newsletter. Desarrollado por Nicolás López.">
+  <link rel="stylesheet" href="../../assets/css/fonts-demos.css">
+  <link rel="stylesheet" href="../../assets/vendor/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="stylesheet" href="../../assets/css/demo-bar.css">
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#hero" class="nav-logo">
         <img src="img/icono-oni.jpg" alt="ONI Logo">
         <span>ONI</span>
       </a>
@@ -35,8 +38,9 @@
       </div>
     </div>
     <div class="search-bar" id="searchBar">
-      <input type="text" placeholder="Buscar juegos, noticias, reviews..." id="searchInput">
-      <button><i class="fas fa-search"></i></button>
+      <input type="search" placeholder="Buscar juegos, noticias, reviews..." id="searchInput" aria-label="Buscar en ONI" autocomplete="off">
+      <button type="button" id="searchGo" aria-label="Buscar"><i class="fas fa-search"></i></button>
+      <div class="search-results" id="searchResults" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
     </div>
   </nav>
 
@@ -44,27 +48,27 @@
   <section class="hero" id="hero">
     <div class="hero-slides">
 
-      <div class="hero-slide active" style="--bg: url('img/demon_souls.jpg')">
+      <div class="hero-slide active" data-ref="demons-souls" style="--bg: url('img/demon_souls.jpg')">
         <div class="slide-overlay"></div>
         <div class="slide-content">
-          <div class="slide-tag">Reseña Exclusiva</div>
-          <h1 class="slide-title">Demon's Souls<br><span>Remaster</span></h1>
-          <p class="slide-desc">El mítico iniciador de la franquicia Souls vuelve renovado para las nuevas generaciones. Gráficos rediseñados, misma brutalidad.</p>
+          <div class="slide-tag">Destacado</div>
+          <h1 class="slide-title">Demon's Souls<br><span>Remake</span></h1>
+          <p class="slide-desc">El clásico de FromSoftware renace en PS5: Bluepoint reconstruyó cada rincón de Boletaria sin perder su brutal dificultad.</p>
           <div class="slide-meta">
-            <span><i class="fas fa-gamepad"></i> PS5 Exclusive</span>
-            <span><i class="fas fa-star"></i> 9.4 / 10</span>
+            <span><i class="fas fa-gamepad"></i> PlayStation 5</span>
+            <span><i class="fas fa-star"></i> 9.2 / 10</span>
           </div>
-          <a href="#" class="btn-hero">Leer reseña <i class="fas fa-arrow-right"></i></a>
+          <a href="#" class="btn-hero">Leer artículo <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="slide-number">01 / 03</div>
       </div>
 
-      <div class="hero-slide" style="--bg: url('img/re.webp')">
+      <div class="hero-slide" data-ref="re-village" style="--bg: url('img/re.webp')">
         <div class="slide-overlay"></div>
         <div class="slide-content">
-          <div class="slide-tag">Noticia</div>
+          <div class="slide-tag">Reseña</div>
           <h1 class="slide-title">Resident Evil<br><span>Village</span></h1>
-          <p class="slide-desc">Capcom apuesta de nuevo por el terror en primera persona. Una aldea oscura, un castillo imponente y horrores que te perseguirán en sueños.</p>
+          <p class="slide-desc">Ethan Winters vuelve al horror en una aldea de Europa del Este dominada por Lady Dimitrescu y sus hijas.</p>
           <div class="slide-meta">
             <span><i class="fas fa-gamepad"></i> Multiplataforma</span>
             <span><i class="fas fa-star"></i> 8.8 / 10</span>
@@ -74,36 +78,36 @@
         <div class="slide-number">02 / 03</div>
       </div>
 
-      <div class="hero-slide" style="--bg: url('img/cyber.jpg')">
+      <div class="hero-slide" data-ref="cyberpunk" style="--bg: url('img/cyber.jpg')">
         <div class="slide-overlay"></div>
         <div class="slide-content">
           <div class="slide-tag">Análisis</div>
-          <h1 class="slide-title">El Futuro<br><span>del Gaming</span></h1>
-          <p class="slide-desc">IA generativa, mundos abiertos procedurales y hardware de próxima generación. ¿Hacia dónde va la industria de los videojuegos?</p>
+          <h1 class="slide-title">Cyberpunk<br><span>2077</span></h1>
+          <p class="slide-desc">De un lanzamiento polémico a una de las grandes redenciones de la industria: así cambió Night City tras la actualización 2.0 y Phantom Liberty.</p>
           <div class="slide-meta">
-            <span><i class="fas fa-microchip"></i> Tecnología</span>
-            <span><i class="fas fa-fire"></i> Tendencia</span>
+            <span><i class="fas fa-city"></i> RPG · Mundo abierto</span>
+            <span><i class="fas fa-star"></i> 9.0 / 10</span>
           </div>
-          <a href="#" class="btn-hero">Explorar <i class="fas fa-arrow-right"></i></a>
+          <a href="#" class="btn-hero">Leer análisis <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="slide-number">03 / 03</div>
       </div>
 
     </div>
     <div class="hero-controls">
-      <button class="hero-prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+      <button class="hero-prev" id="heroPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
       <div class="hero-dots" id="heroDots">
         <span class="dot active"></span>
         <span class="dot"></span>
         <span class="dot"></span>
       </div>
-      <button class="hero-next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+      <button class="hero-next" id="heroNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
     </div>
     <div class="hero-ticker">
-      <span class="ticker-label">ÚLTIMAS NOTICIAS</span>
+      <span class="ticker-label">EN ONI</span>
       <div class="ticker-track">
-        <span>Xbox Game Pass suma 5 nuevos títulos este mes &nbsp;·&nbsp; Steam rompe récord de usuarios simultáneos &nbsp;·&nbsp; Nintendo Direct confirmado para el próximo mes &nbsp;·&nbsp; GTA VI fecha de lanzamiento anunciada &nbsp;·&nbsp; The Game Awards 2024: lista completa de ganadores &nbsp;·&nbsp; PlayStation Plus estrena servicio renovado &nbsp;·&nbsp;</span>
-        <span>Xbox Game Pass suma 5 nuevos títulos este mes &nbsp;·&nbsp; Steam rompe récord de usuarios simultáneos &nbsp;·&nbsp; Nintendo Direct confirmado para el próximo mes &nbsp;·&nbsp; GTA VI fecha de lanzamiento anunciada &nbsp;·&nbsp; The Game Awards 2024: lista completa de ganadores &nbsp;·&nbsp; PlayStation Plus estrena servicio renovado &nbsp;·&nbsp;</span>
+        <span>Reseña: Overwatch 2 y su paso al 5 contra 5 &nbsp;·&nbsp; Guía: cómo subir de rango como un profesional &nbsp;·&nbsp; Especial: Lo-Fi y videojuegos &nbsp;·&nbsp; Hardware: qué tarjeta de video necesitas para 1080p, 1440p y 4K &nbsp;·&nbsp; Resident Evil: en qué orden jugar la saga &nbsp;·&nbsp; Únete a la comunidad ONI en Discord &nbsp;·&nbsp;</span>
+        <span>Reseña: Overwatch 2 y su paso al 5 contra 5 &nbsp;·&nbsp; Guía: cómo subir de rango como un profesional &nbsp;·&nbsp; Especial: Lo-Fi y videojuegos &nbsp;·&nbsp; Hardware: qué tarjeta de video necesitas para 1080p, 1440p y 4K &nbsp;·&nbsp; Resident Evil: en qué orden jugar la saga &nbsp;·&nbsp; Únete a la comunidad ONI en Discord &nbsp;·&nbsp;</span>
       </div>
     </div>
   </section>
@@ -111,32 +115,32 @@
   <!-- BREAKING NEWS BAR -->
   <div class="breaking-bar">
     <div class="breaking-inner">
-      <div class="breaking-item">
-        <img src="img/news1.jpg" alt="">
+      <div class="breaking-item" data-id="estudios">
+        <img src="img/news1.jpg" alt="Presentación en la oficina de un estudio de desarrollo">
         <div>
-          <span class="breaking-tag">HOY</span>
-          <p>Steam bate su propio récord con 35 millones de jugadores simultáneos</p>
+          <span class="breaking-tag">ESTUDIOS</span>
+          <p>Así se trabaja dentro de un estudio de videojuegos</p>
         </div>
       </div>
-      <div class="breaking-item">
-        <img src="img/news2.jpg" alt="">
+      <div class="breaking-item" data-id="pandemia">
+        <img src="img/news2.jpg" alt="Cartel informativo sobre la pandemia de COVID-19">
         <div>
-          <span class="breaking-tag">NUEVO</span>
-          <p>Nintendo presenta la sucesora de Switch con pantalla OLED 4K</p>
+          <span class="breaking-tag">INDUSTRIA</span>
+          <p>La pandemia de 2020 disparó el consumo de videojuegos</p>
         </div>
       </div>
-      <div class="breaking-item">
-        <img src="img/news3.jpg" alt="">
+      <div class="breaking-item" data-id="feed">
+        <img src="img/news3.jpg" alt="Tablet con una aplicación de noticias">
         <div>
-          <span class="breaking-tag">TRENDING</span>
-          <p>Elden Ring DLC Shadow of the Erdtree vendió 5 millones en 3 días</p>
+          <span class="breaking-tag">APPS</span>
+          <p>Arma tu propio feed de noticias gamer en el celular</p>
         </div>
       </div>
-      <div class="breaking-item">
-        <img src="img/news4.jpg" alt="">
+      <div class="breaking-item" data-id="filtraciones">
+        <img src="img/news4.jpg" alt="Persona encapuchada leyendo un periódico en llamas">
         <div>
-          <span class="breaking-tag">ESPORTS</span>
-          <p>Team Liquid gana el torneo mundial de League of Legends 2024</p>
+          <span class="breaking-tag">OPINIÓN</span>
+          <p>Filtraciones falsas: cómo detectar un rumor antes de compartirlo</p>
         </div>
       </div>
     </div>
@@ -149,72 +153,72 @@
     <section class="section" id="noticias">
       <div class="section-header">
         <h2 class="section-title"><span class="accent-bar"></span>Últimas Noticias</h2>
-        <a href="#" class="see-all">Ver todas <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="news-grid">
-        <article class="news-card news-card--featured">
+        <article class="news-card news-card--featured" data-id="demons-souls">
           <div class="card-img-wrap">
-            <img src="img/demon_souls.jpg" alt="Demon's Souls">
-            <span class="card-badge">Reseña</span>
+            <img src="img/demon_souls.jpg" alt="Criatura alada de Demon's Souls frente a la luna">
+            <span class="card-badge">Destacado</span>
             <div class="card-img-overlay"></div>
           </div>
           <div class="card-body">
             <div class="card-meta">
-              <span class="card-cat">RPG</span>
-              <span class="card-date"><i class="fas fa-clock"></i> Hace 2 horas</span>
+              <span class="card-cat">Acción RPG</span>
+              <span class="card-date"><i class="fas fa-clock"></i> 8 min de lectura</span>
             </div>
-            <h3 class="card-title">Demon's Souls Remake: la obra maestra que definió una generación vuelve más brutal que nunca</h3>
-            <p class="card-excerpt">From Software y Bluepoint Games logran lo imposible: mejorar un clásico sin traicionar su esencia. Análisis completo del remake más esperado.</p>
+            <h3 class="card-title">Demon's Souls Remake: el clásico de FromSoftware que estrenó la PS5</h3>
+            <p class="card-excerpt">Bluepoint Games reconstruyó desde cero el juego de 2009 sin traicionar su esencia: misma dificultad, mismo mundo y una generación nueva de gráficos.</p>
             <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
-        <article class="news-card">
+        <article class="news-card" data-id="cod-mw">
           <div class="card-img-wrap">
-            <img src="img/noticia2.jpg" alt="Noticia">
-            <span class="card-badge card-badge--red">Trending</span>
-            <div class="card-img-overlay"></div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-cat">Acción</span>
-              <span class="card-date"><i class="fas fa-clock"></i> Hace 4 horas</span>
-            </div>
-            <h3 class="card-title">God of War Ragnarök supera los 11 millones de copias vendidas</h3>
-            <p class="card-excerpt">Sony Interactive confirma el éxito comercial de la saga nórdica.</p>
-            <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="card-img-wrap">
-            <img src="img/noticia3.jpg" alt="Noticia">
-            <span class="card-badge card-badge--green">Nuevo</span>
-            <div class="card-img-overlay"></div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span class="card-cat">Indie</span>
-              <span class="card-date"><i class="fas fa-clock"></i> Ayer</span>
-            </div>
-            <h3 class="card-title">Hollow Knight: Silksong establece nueva fecha de lanzamiento</h3>
-            <p class="card-excerpt">Team Cherry confirma lo que todos esperaban. La espera está a punto de terminar.</p>
-            <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="card-img-wrap">
-            <img src="img/noticia4.jpg" alt="Noticia">
+            <img src="img/noticia4.jpg" alt="Portada de Call of Duty: Modern Warfare con el Capitán Price">
+            <span class="card-badge card-badge--red">Clásico</span>
             <div class="card-img-overlay"></div>
           </div>
           <div class="card-body">
             <div class="card-meta">
               <span class="card-cat">FPS</span>
-              <span class="card-date"><i class="fas fa-clock"></i> Hace 2 días</span>
+              <span class="card-date"><i class="fas fa-clock"></i> 5 min de lectura</span>
             </div>
-            <h3 class="card-title">Counter-Strike 2 recibe actualización masiva con nuevos mapas</h3>
-            <p class="card-excerpt">Valve sorprende con el mayor parche desde el lanzamiento del juego.</p>
+            <h3 class="card-title">Call of Duty: Modern Warfare, el reinicio que dio origen a Warzone</h3>
+            <p class="card-excerpt">El regreso del Capitán Price en 2019 renovó la saga e introdujo el juego cruzado entre PC y consolas.</p>
+            <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="news-card" data-id="blizzcon">
+          <div class="card-img-wrap">
+            <img src="img/noticia3.jpg" alt="Arte del ticket virtual de BlizzCon con personajes de Blizzard">
+            <span class="card-badge card-badge--green">Eventos</span>
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat">Eventos</span>
+              <span class="card-date"><i class="fas fa-clock"></i> 4 min de lectura</span>
+            </div>
+            <h3 class="card-title">Ticket virtual: así se vive BlizzCon desde casa</h3>
+            <p class="card-excerpt">Charlas, torneos y objetos exclusivos para los juegos de Blizzard sin necesidad de viajar a California.</p>
+            <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="news-card" data-id="setup-rgb">
+          <div class="card-img-wrap">
+            <img src="img/showcase2.jpg" alt="Jugador frente a una pantalla rodeado de luces de colores">
+            <span class="card-badge">Guía</span>
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat">Guías</span>
+              <span class="card-date"><i class="fas fa-clock"></i> 6 min de lectura</span>
+            </div>
+            <h3 class="card-title">Setup gamer: cómo iluminar tu espacio con luces RGB</h3>
+            <p class="card-excerpt">Tiras LED, luz indirecta y colores que no cansan la vista: ideas para un rincón de juego con estilo.</p>
             <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
@@ -222,26 +226,26 @@
     </section>
 
     <!-- BANNER DESTACADO -->
-    <section class="banner-destacado" id="destacados" style="--banner-bg: url('img/lofi.jpg')">
+    <section class="banner-destacado" id="destacados" data-id="lofi" style="--banner-bg: url('img/lofi.jpg')">
       <div class="banner-overlay"></div>
       <div class="banner-content">
         <span class="banner-eyebrow">Especial de la semana</span>
-        <h2>Lo-Fi Gaming: la<br>nueva tendencia que<br>conquista Twitch</h2>
-        <p>Streams de 8 horas, música ambiental y videojuegos relajantes. Descubre por qué millones eligen desconectar jugando.</p>
+        <h2>Lo-Fi y videojuegos:<br>la estética que<br>conquistó el streaming</h2>
+        <p>Música tranquila, ilustraciones cálidas y juegos relajantes: por qué millones eligen desconectarse con esta estética.</p>
         <a href="#" class="btn-banner">Leer el especial <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="banner-stats">
         <div class="stat">
-          <span class="stat-num">12M+</span>
-          <span class="stat-label">Espectadores diarios</span>
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Transmisiones sin pausa</span>
         </div>
         <div class="stat">
-          <span class="stat-num">340K</span>
-          <span class="stat-label">Streamers activos</span>
+          <span class="stat-num">Chill</span>
+          <span class="stat-label">Juegos relajantes</span>
         </div>
         <div class="stat">
-          <span class="stat-num">#1</span>
-          <span class="stat-label">Categoría en Twitch</span>
+          <span class="stat-num">Focus</span>
+          <span class="stat-label">Para estudiar y trabajar</span>
         </div>
       </div>
     </section>
@@ -250,15 +254,14 @@
     <section class="section" id="reviews">
       <div class="section-header">
         <h2 class="section-title"><span class="accent-bar"></span>Reviews Recientes</h2>
-        <a href="#" class="see-all">Ver todas <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="reviews-grid">
 
-        <article class="review-card">
+        <article class="review-card" data-id="re-village">
           <div class="review-img-wrap">
-            <img src="img/re.webp" alt="Resident Evil Village">
+            <img src="img/re.webp" alt="Portada de Resident Evil Village">
             <div class="review-score">
-              <span>9.1</span>
+              <span>8.8</span>
               <small>/ 10</small>
             </div>
           </div>
@@ -268,7 +271,7 @@
             <div class="review-stars">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
             </div>
-            <p>Una experiencia de terror que mezcla lo mejor de RE4 y RE7 con ambición narrativa renovada.</p>
+            <p>Mezcla la acción de Resident Evil 4 con el terror en primera persona de RE7, con Lady Dimitrescu como gran protagonista.</p>
             <div class="review-tags">
               <span>Terror</span><span>Acción</span><span>Historia</span>
             </div>
@@ -276,45 +279,45 @@
           </div>
         </article>
 
-        <article class="review-card">
+        <article class="review-card" data-id="cyberpunk">
           <div class="review-img-wrap">
-            <img src="img/showcase2.jpg" alt="Juego">
-            <div class="review-score review-score--gold">
-              <span>8.7</span>
+            <img src="img/cyber.jpg" alt="Arte de Cyberpunk 2077 con su logo sobre Night City">
+            <div class="review-score review-score--platinum">
+              <span>9.0</span>
               <small>/ 10</small>
             </div>
           </div>
           <div class="review-body">
-            <span class="review-platform"><i class="fab fa-xbox"></i> <i class="fab fa-steam"></i></span>
-            <h3>Halo Infinite</h3>
+            <span class="review-platform"><i class="fab fa-playstation"></i> <i class="fab fa-xbox"></i> <i class="fab fa-steam"></i></span>
+            <h3>Cyberpunk 2077</h3>
             <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
             </div>
-            <p>El Master Chief regresa con el mejor multijugador de la saga y una campaña que recupera la magia original.</p>
+            <p>Tras la actualización 2.0 y Phantom Liberty, Night City por fin cumple lo que prometía: uno de los mundos abiertos más densos del género.</p>
             <div class="review-tags">
-              <span>FPS</span><span>Multijugador</span><span>Sci-Fi</span>
+              <span>RPG</span><span>Mundo abierto</span><span>Sci-Fi</span>
             </div>
             <a href="#" class="card-link">Ver review completa <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
-        <article class="review-card">
+        <article class="review-card" data-id="overwatch-2">
           <div class="review-img-wrap">
-            <img src="img/image-three.jpg" alt="Juego">
-            <div class="review-score review-score--platinum">
-              <span>9.8</span>
+            <img src="img/noticia2.jpg" alt="Héroes de Overwatch 2 junto al logo del juego">
+            <div class="review-score review-score--gold">
+              <span>8.0</span>
               <small>/ 10</small>
             </div>
           </div>
           <div class="review-body">
-            <span class="review-platform"><i class="fab fa-playstation"></i> <i class="fab fa-steam"></i></span>
-            <h3>Elden Ring</h3>
+            <span class="review-platform"><i class="fab fa-playstation"></i> <i class="fab fa-xbox"></i> <i class="fab fa-steam"></i></span>
+            <h3>Overwatch 2</h3>
             <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
             </div>
-            <p>La obra cumbre de FromSoftware. Un mundo abierto que redefine el género action-RPG para siempre.</p>
+            <p>El paso a equipos de 5 contra 5 y al modelo gratuito hizo las partidas más rápidas y accesibles, aunque su sistema de temporadas divide opiniones.</p>
             <div class="review-tags">
-              <span>Souls-like</span><span>Open World</span><span>Masterpiece</span>
+              <span>Hero shooter</span><span>Multijugador</span><span>Free-to-play</span>
             </div>
             <a href="#" class="card-link">Ver review completa <i class="fas fa-arrow-right"></i></a>
           </div>
@@ -327,48 +330,47 @@
     <section class="section two-col-section" id="esports">
       <div class="col-main">
         <div class="section-header">
-          <h2 class="section-title"><span class="accent-bar"></span>eSports</h2>
-          <a href="#" class="see-all">Ver más <i class="fas fa-arrow-right"></i></a>
+          <h2 class="section-title"><span class="accent-bar"></span>eSports y competitivo</h2>
         </div>
         <div class="esports-list">
-          <article class="esport-item">
+          <article class="esport-item" data-id="setup-competitivo">
             <div class="esport-img">
-              <img src="img/image-four.jpg" alt="eSport">
+              <img src="img/image-four.jpg" alt="Escritorio minimalista con computador y monitor">
             </div>
             <div class="esport-info">
-              <span class="card-cat">League of Legends</span>
-              <h4>Worlds 2024: T1 vs Gen.G en la gran final más vista de la historia</h4>
+              <span class="card-cat">Setup</span>
+              <h4>Setup competitivo: lo que de verdad importa para rendir más</h4>
               <div class="esport-meta">
-                <span><i class="fas fa-trophy"></i> Final Mundial</span>
-                <span><i class="fas fa-eye"></i> 6.4M espectadores</span>
+                <span><i class="fas fa-book-open"></i> Guía</span>
+                <span><i class="fas fa-clock"></i> 6 min de lectura</span>
               </div>
               <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
             </div>
           </article>
-          <article class="esport-item">
+          <article class="esport-item" data-id="subir-rango">
             <div class="esport-img">
-              <img src="img/image-five.jpg" alt="eSport">
+              <img src="img/image-five.jpg" alt="Flecha luminosa ascendente sobre fondo oscuro">
             </div>
             <div class="esport-info">
-              <span class="card-cat">CS2</span>
-              <h4>Major de Copenhague 2024: análisis de los 8 mejores equipos del mundo</h4>
+              <span class="card-cat">Competitivo</span>
+              <h4>Cómo subir de rango: 5 hábitos de los jugadores profesionales</h4>
               <div class="esport-meta">
-                <span><i class="fas fa-trophy"></i> Major</span>
-                <span><i class="fas fa-eye"></i> 2.1M espectadores</span>
+                <span><i class="fas fa-trophy"></i> Clasificatorias</span>
+                <span><i class="fas fa-clock"></i> 7 min de lectura</span>
               </div>
               <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
             </div>
           </article>
-          <article class="esport-item">
+          <article class="esport-item" data-id="aim">
             <div class="esport-img">
-              <img src="img/news3.jpg" alt="eSport">
+              <img src="img/image-three.jpg" alt="Mira holográfica circular sobre fondo morado">
             </div>
             <div class="esport-info">
-              <span class="card-cat">Valorant</span>
-              <h4>VCT Americas 2024: el equipo latinoamericano que sorprendió al mundo</h4>
+              <span class="card-cat">Entrenamiento</span>
+              <h4>Aim trainers: cómo mejorar tu puntería en los shooters</h4>
               <div class="esport-meta">
-                <span><i class="fas fa-trophy"></i> VCT</span>
-                <span><i class="fas fa-map-marker-alt"></i> São Paulo</span>
+                <span><i class="fas fa-crosshairs"></i> Tutorial</span>
+                <span><i class="fas fa-clock"></i> 5 min de lectura</span>
               </div>
               <a href="#" class="card-link">Leer más <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -381,39 +383,39 @@
           <h2 class="section-title"><span class="accent-bar"></span>Lo más leído</h2>
         </div>
         <ol class="trending-list">
-          <li class="trending-item">
+          <li class="trending-item" data-id="guia-souls">
             <span class="trending-num">01</span>
             <div>
-              <a href="#">GTA VI: todo lo que sabemos del juego más esperado de la historia</a>
-              <span class="card-date"><i class="fas fa-fire"></i> 48K lecturas</span>
+              <a href="#">Guía para principiantes: cómo empezar en los juegos souls</a>
+              <span class="card-date"><i class="fas fa-clock"></i> 9 min de lectura</span>
             </div>
           </li>
-          <li class="trending-item">
+          <li class="trending-item" data-id="orden-re">
             <span class="trending-num">02</span>
             <div>
-              <a href="#">Los 10 mejores juegos de 2024 según ONI</a>
-              <span class="card-date"><i class="fas fa-fire"></i> 31K lecturas</span>
+              <a href="#">Resident Evil: en qué orden jugar la saga</a>
+              <span class="card-date"><i class="fas fa-clock"></i> 6 min de lectura</span>
             </div>
           </li>
-          <li class="trending-item">
+          <li class="trending-item" data-id="pc-consola">
             <span class="trending-num">03</span>
             <div>
-              <a href="#">PS5 Pro vs Xbox Series X: comparativa definitiva de hardware</a>
-              <span class="card-date"><i class="fas fa-fire"></i> 28K lecturas</span>
+              <a href="#">PC o consola: qué conviene según tu forma de jugar</a>
+              <span class="card-date"><i class="fas fa-clock"></i> 7 min de lectura</span>
             </div>
           </li>
-          <li class="trending-item">
+          <li class="trending-item" data-id="mas-fps">
             <span class="trending-num">04</span>
             <div>
-              <a href="#">Cómo mejorar tu FPS en PC sin gastar dinero</a>
-              <span class="card-date"><i class="fas fa-fire"></i> 22K lecturas</span>
+              <a href="#">Cómo mejorar tus FPS en PC sin gastar dinero</a>
+              <span class="card-date"><i class="fas fa-clock"></i> 5 min de lectura</span>
             </div>
           </li>
-          <li class="trending-item">
+          <li class="trending-item" data-id="cooperativos">
             <span class="trending-num">05</span>
             <div>
-              <a href="#">Nintendo Switch 2: fecha, precio y juegos confirmados</a>
-              <span class="card-date"><i class="fas fa-fire"></i> 19K lecturas</span>
+              <a href="#">Los mejores juegos cooperativos para jugar con amigos</a>
+              <span class="card-date"><i class="fas fa-clock"></i> 6 min de lectura</span>
             </div>
           </li>
         </ol>
@@ -422,23 +424,24 @@
           <i class="fas fa-envelope-open-text"></i>
           <h4>Newsletter ONI</h4>
           <p>Las mejores noticias gaming directo a tu correo, cada semana.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="tu@email.com">
-            <button>Suscribirse</button>
-          </div>
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <input type="email" placeholder="tu@email.com" aria-label="Tu correo" autocomplete="email" required>
+            <button type="submit">Suscribirse</button>
+            <p class="newsletter-msg" aria-live="polite"></p>
+          </form>
         </div>
       </aside>
     </section>
 
     <!-- BANNER 2 -->
-    <section class="banner-full" style="--banner-bg: url('img/tech-red.jpg')">
+    <section class="banner-full" data-id="gpu" style="--banner-bg: url('img/tech-red.jpg')">
       <div class="banner-full-overlay"></div>
       <div class="banner-full-content">
         <div class="banner-full-text">
-          <span class="banner-eyebrow">Especial Hardware</span>
-          <h2>Las mejores GPUs de<br>2024 para gaming 4K</h2>
-          <p>RTX 4090, RX 7900 XTX y más. Analizamos el hardware que necesitas para jugar al máximo nivel.</p>
-          <a href="#" class="btn-banner">Ver análisis <i class="fas fa-arrow-right"></i></a>
+          <span class="banner-eyebrow">Especial hardware</span>
+          <h2>Qué tarjeta de video<br>necesitas para 1080p, 1440p y 4K</h2>
+          <p>Memoria de video, resolución y tasa de refresco: te explicamos qué mirar según tus juegos y tu presupuesto.</p>
+          <a href="#" class="btn-banner">Ver guía <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -454,8 +457,8 @@
           <div class="community-content">
             <i class="fab fa-twitch"></i>
             <h4>Streams en Vivo</h4>
-            <p>Únete a nuestros streamers en Twitch cada noche</p>
-            <a href="#" class="community-link">Entrar al stream</a>
+            <p>Partidas en vivo, estrenos y charlas con la comunidad</p>
+            <a href="#" class="community-link" data-comunidad="Twitch">Entrar al stream</a>
           </div>
         </div>
         <div class="community-card" style="--cimg: url('img/gato-lofi.jpg')">
@@ -463,17 +466,17 @@
           <div class="community-content">
             <i class="fab fa-discord"></i>
             <h4>Discord ONI</h4>
-            <p>+15.000 gamers en nuestra comunidad oficial</p>
-            <a href="#" class="community-link">Unirme gratis</a>
+            <p>Conversa, arma equipo y participa en torneos de la comunidad</p>
+            <a href="#" class="community-link" data-comunidad="Discord">Unirme gratis</a>
           </div>
         </div>
-        <div class="community-card" style="--cimg: url('img/image-three.jpg')">
+        <div class="community-card" style="--cimg: url('img/brand.png')">
           <div class="community-overlay"></div>
           <div class="community-content">
             <i class="fab fa-youtube"></i>
             <h4>Canal YouTube</h4>
             <p>Reviews, gameplay y análisis en video cada semana</p>
-            <a href="#" class="community-link">Suscribirme</a>
+            <a href="#" class="community-link" data-comunidad="YouTube">Suscribirme</a>
           </div>
         </div>
       </div>
@@ -488,63 +491,93 @@
         <img src="img/icono-oni.jpg" alt="ONI">
         <h3>ONI</h3>
         <p>El portal de videojuegos más completo de habla hispana. Noticias, reseñas y comunidad.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="#" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
-          <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-        </div>
+        <a href="#hero" class="footer-top-link"><i class="fas fa-arrow-up"></i> Volver al inicio</a>
       </div>
       <div class="footer-links-grid">
         <div class="footer-col">
           <h5>Contenido</h5>
           <ul>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Reviews</a></li>
-            <li><a href="#">Análisis</a></li>
-            <li><a href="#">Guías</a></li>
-            <li><a href="#">Lanzamientos</a></li>
+            <li><a href="#" data-buscar="Noticias">Noticias</a></li>
+            <li><a href="#" data-buscar="Reviews">Reviews</a></li>
+            <li><a href="#" data-buscar="Análisis">Análisis</a></li>
+            <li><a href="#" data-buscar="Especial">Especiales</a></li>
+            <li><a href="#" data-buscar="Guía">Guías</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Géneros</h5>
           <ul>
-            <li><a href="#">RPG</a></li>
-            <li><a href="#">FPS</a></li>
-            <li><a href="#">Estrategia</a></li>
-            <li><a href="#">Indie</a></li>
-            <li><a href="#">eSports</a></li>
+            <li><a href="#" data-buscar="RPG">RPG</a></li>
+            <li><a href="#" data-buscar="FPS">FPS</a></li>
+            <li><a href="#" data-buscar="Terror">Terror</a></li>
+            <li><a href="#" data-buscar="cooperativ">Cooperativos</a></li>
+            <li><a href="#" data-buscar="eSports">eSports</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Plataformas</h5>
           <ul>
-            <li><a href="#">PlayStation</a></li>
-            <li><a href="#">Xbox</a></li>
-            <li><a href="#">Nintendo</a></li>
-            <li><a href="#">PC / Steam</a></li>
-            <li><a href="#">Mobile</a></li>
+            <li><a href="#" data-buscar="PlayStation">PlayStation</a></li>
+            <li><a href="#" data-buscar="Xbox">Xbox</a></li>
+            <li><a href="#" data-buscar="celular">Celular</a></li>
+            <li><a href="#" data-buscar="Steam">PC / Steam</a></li>
+            <li><a href="#" data-buscar="Hardware">Hardware</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>ONI</h5>
           <ul>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Equipo editorial</a></li>
-            <li><a href="#">Publicidad</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#" data-info="acerca">Acerca de</a></li>
+            <li><a href="#" data-info="equipo">Equipo editorial</a></li>
+            <li><a href="#" data-info="publicidad">Publicidad</a></li>
+            <li><a href="#" data-info="contacto">Contacto</a></li>
+            <li><a href="#" data-info="privacidad">Política de privacidad</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 ONI — Videojuegos Report. Todos los derechos reservados.</p>
+      <p>© <span class="anio">2026</span> ONI — Videojuegos Report · Sitio de demostración. Diseño y desarrollo: <a href="../../index.html">Nicolás López</a></p>
       <p>Hecho con <i class="fas fa-heart"></i> para la comunidad gamer latinoamericana</p>
     </div>
   </footer>
+
+  <!-- LECTOR DE ARTÍCULOS -->
+  <div class="oni-modal" id="readerModal" hidden role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+    <article class="oni-modal__box reader">
+      <button class="oni-modal__close" data-close aria-label="Cerrar"><i class="fas fa-times"></i></button>
+      <div class="reader__img"><img id="readerImg" src="" alt=""></div>
+      <div class="reader__body">
+        <div class="reader__meta" id="readerMeta"></div>
+        <h2 class="reader__title" id="readerTitle"></h2>
+        <p class="reader__lead" id="readerLead"></p>
+        <div class="reader__content" id="readerBody"></div>
+        <div class="reader__extra" id="readerExtra"></div>
+        <p class="reader__note"><i class="fas fa-circle-info"></i> Artículo de demostración del portal ONI.</p>
+        <div class="reader__actions">
+          <button class="btn-banner" id="readerShare"><i class="fas fa-link"></i> Copiar enlace</button>
+          <button class="reader__next" id="readerNext">Siguiente artículo <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- INFORMACIÓN / COMUNIDAD -->
+  <div class="oni-modal" id="infoModal" hidden role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="oni-modal__box info">
+      <button class="oni-modal__close" data-close aria-label="Cerrar"><i class="fas fa-times"></i></button>
+      <div class="info__icon" id="infoIcon"><i class="fas fa-gamepad"></i></div>
+      <h3 id="infoTitle"></h3>
+      <div id="infoBody"></div>
+    </div>
+  </div>
+
+  <div class="oni-toast" id="oniToast" role="status" aria-live="polite"></div>
+
+  <a class="nlp-back" href="../../index.html#proyectos" aria-label="Volver al portafolio de Nicolás López">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span><span class="nlp-back__long">Volver al </span><b>portafolio</b></span>
+  </a>
 
   <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" aria-label="Volver arriba">

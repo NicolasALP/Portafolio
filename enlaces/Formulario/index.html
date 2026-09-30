@@ -1,37 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-      <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/tailwind.min.css"  media="screen,projection"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar email · Validación de formularios</title>
+    <meta name="description" content="Formulario con validación en tiempo real que abre tu aplicación de correo con el mensaje listo. Demo desarrollada por Nicolás López.">
+    <link rel="stylesheet" href="../../assets/css/fonts-demos.css">
+    <link rel="stylesheet" href="../../assets/vendor/fontawesome/css/all.min.css">
+    <link type="text/css" rel="stylesheet" href="css/tailwind.min.css">
     <link rel="stylesheet" href="css/custom.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Enviar Email</title>
+    <link rel="stylesheet" href="../../assets/css/demo-bar.css">
   </head>
   <body>
 
-    <div class="container mx-auto mt-20 bg-white">     
-        <header id="header" class="bg-pink-800 p-3 font-bold">
-            Contáctanos
+    <div class="container mx-auto mt-10 md:mt-20 bg-white contenido">
+        <header id="header" class="p-3 font-bold">
+            <i class="fa-solid fa-envelope-open-text mr-2"></i> Contáctanos
         </header>
 
+        <form id="enviar-mail" class="py-10 px-5 max-w-lg mx-auto" novalidate>
+            <p class="intro text-gray-600 mb-8">Completa los tres campos. El botón <b>Enviar</b> se activa solo cuando todo es válido y abre tu aplicación de correo con el mensaje listo.</p>
 
-        <form id="enviar-mail" class="py-10 px-5 max-w-lg mx-auto">
-            <div class="mb-10">
-                <label for="email">Para:</label>
-                <input class="bg-gray-100 border shadow p-3 w-full"  id="email" type="email">
+            <div class="mb-6 campo">
+                <label for="email" class="font-semibold">Para:</label>
+                <input class="bg-gray-100 border shadow p-3 w-full" id="email" type="email" placeholder="destinatario@correo.com" autocomplete="email" aria-describedby="email-error">
+                <p class="error-campo" id="email-error" aria-live="polite"></p>
             </div>
-            <div class="mb-10">
-                <label for="asunto">Asunto</label>
-                <input class="bg-gray-100 border shadow p-3 w-full"  id="asunto" type="text">
+            <div class="mb-6 campo">
+                <label for="asunto" class="font-semibold">Asunto</label>
+                <input class="bg-gray-100 border shadow p-3 w-full" id="asunto" type="text" placeholder="¿De qué se trata?" maxlength="120" aria-describedby="asunto-error">
+                <p class="error-campo" id="asunto-error" aria-live="polite"></p>
             </div>
-            <div class="mb-10"> 
-                <label for="mensaje">Mensaje</label>
-                <textarea class="bg-gray-100 border shadow p-3 w-full" id="mensaje"></textarea>
+            <div class="mb-6 campo">
+                <label for="mensaje" class="font-semibold">Mensaje</label>
+                <textarea class="bg-gray-100 border shadow p-3 w-full h-40" id="mensaje" placeholder="Escribe tu mensaje (mínimo 10 caracteres)" maxlength="2000" aria-describedby="mensaje-error"></textarea>
+                <div class="flex justify-between">
+                    <p class="error-campo" id="mensaje-error" aria-live="polite"></p>
+                    <p class="contador-caracteres text-gray-500 text-sm" id="contador">0 / 2000</p>
+                </div>
             </div>
 
-            <div  id="spinner">
+            <div id="spinner">
                 <div class="sk-chase">
                     <div class="sk-chase-dot"></div>
                     <div class="sk-chase-dot"></div>
@@ -41,27 +50,26 @@
                     <div class="sk-chase-dot"></div>
                 </div>
             </div>
-            
-            <div class="flex justify-between">
-                    <button 
-                        id="enviar" class="w-full bg-blue-600 px-2 py-5 text-white items-center cursor-not-allowed opacity-50 mr-5 uppercase font-bold items-center flex justify-center" 
-                        type="submit" 
-                    >Enviar
-                        <i class="material-icons right text-white ml-3">send</i>
-                    </button>
 
-                    <button 
-                        id="resetBtn" 
-                        class="w-full bg-green-600 px-2 py-5 text-white items-center uppercase font-bold items-center flex justify-center" 
-                        type="submit"
-                    >Resetear Form
-                            <i class="material-icons right ml-3">delete</i>
-                    </button>
+            <div class="flex justify-between gap-4 botones">
+                <button id="enviar" class="w-full bg-blue-600 px-2 py-5 text-white uppercase font-bold items-center flex justify-center cursor-not-allowed opacity-50" type="submit" disabled>
+                    Enviar <i class="fa-solid fa-paper-plane ml-3"></i>
+                </button>
+
+                <button id="resetBtn" class="w-full bg-green-600 px-2 py-5 text-white uppercase font-bold items-center flex justify-center" type="button">
+                    Resetear form <i class="fa-solid fa-trash ml-3"></i>
+                </button>
             </div>
-        </form> 
+        </form>
     </div>
+
+    <p class="credito">Demo de validación de formularios · Desarrollada por <a href="../../index.html">Nicolás López</a></p>
+
+    <a class="nlp-back" href="../../index.html#proyectos" aria-label="Volver al portafolio de Nicolás López">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span><span class="nlp-back__long">Volver al </span><b>portafolio</b></span>
+    </a>
 
     <script src="js/app.js"></script>
   </body>
 </html>
-      

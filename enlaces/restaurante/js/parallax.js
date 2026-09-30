@@ -1,31 +1,32 @@
-$(document).ready(function(){
+/* =====================================================
+   Café Preto — efecto parallax (solo pantallas grandes)
+   ===================================================== */
+$(function () {
+  var $win = $(window);
+  var $textos = $('.hero .textos');
+  var $articulo = $('.acerca-de article');
+  var $seccion = $('.acerca-de');
+  var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    $(window).scroll(function(){ //aqui accedemos al scroll de la ventana
-        var windowWidth = $(window).width();    //ancho de la ventana 
+  function parallax() {
+    if (reducir || $win.width() <= 900) {
+      $textos.css({ transform: '', opacity: '' });
+      $articulo.css('transform', '');
+      return;
+    }
+    var scroll = $win.scrollTop();
+    var alto = $win.height();
 
-        if(windowWidth > 800){                  //si el ancho de la ventana es mayor a 800px
-            var scroll = $(window).scrollTop()  //se esta forma se calcula en que nivel de la página está el scroll / posicion de la pantalla
+    // Los textos del header bajan más lento y se desvanecen
+    $textos.css('transform', 'translate3d(0, ' + (scroll * 0.35) + 'px, 0)');
+    if (scroll > 5) $textos.stop(true, true).css('opacity', Math.max(0, 1 - scroll / (alto * 0.8)));
 
-            $('header .textos').css({
-                'transform': 'translate(0px, ' + scroll / 2 + '%)' //0px de izquierda a derecha, de arriba abajo dependerá de scroll(posicionamiento de la pagina en porcentaje)
-                                   //translate (0px, 20% ) 2 es igual a 20
-            })                          //el 0 para que no se posisione horizontalmente y verticalmente si
+    // La tarjeta "Nuestra historia" se desplaza suavemente sobre la foto
+    var centro = $seccion.offset().top + $seccion.outerHeight() / 2 - scroll - alto / 2;
+    var y = Math.max(-60, Math.min(60, centro * -0.12));
+    $articulo.css('transform', 'translate3d(0, ' + y + 'px, 0)');
+  }
 
-            $('.acerca-de article').css({
-                'transform' : 'translate(0px, '+ scroll / -4 + '%)'
-            })
-        }
-    })
-
-//de esta forma se regresa el article a su posicion original
-
-    $(window).resize(function(){ //resize, cuando la pantalla cambie de tamaño
-        var windowWidth = $(window).width();
-
-        if(windowWidth < 800){
-            $('.acerca-de article').css({
-                'transform' : 'translate(0px, 0px)'
-            });
-        }
-    });
+  $win.on('scroll resize', parallax);
+  parallax();
 });

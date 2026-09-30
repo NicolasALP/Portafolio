@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carrito</title>
+    <title>Universidad Online · Cursos en línea</title>
+    <meta name="description" content="Catálogo de cursos con buscador y carrito de compras funcional. Demo desarrollada por Nicolás López.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/mejoras.css">
+    <link rel="stylesheet" href="../../assets/css/demo-bar.css">
 </head>
 <body>
 <header id="header" class="header">
     <div class="container">
         <div class="row">
             <div class="four columns">
-                <img src="img/logo.jpg" id="logo">
+                <a href="#" id="logo-link" aria-label="Universidad Online, inicio"><img src="img/logo.jpg" id="logo" alt="Universidad Online"></a>
             </div>
             <div class="two columns u-pull-right">
                 <ul>
-                    <li class="submenu">
-                            <img src="img/cart.png" id="img-carrito">
+                    <li class="submenu" id="submenu-carrito">
+                            <button type="button" class="btn-carrito" id="img-carrito" aria-label="Ver carrito" aria-expanded="false" aria-controls="carrito">
+                                <img src="img/cart.png" alt="">
+                                <span class="contador" id="contador">0</span>
+                            </button>
                             <div id="carrito">
-                                    
-                                    <table id="lista-carrito" class="u-full-width">
-                                        <thead>
-                                            <tr>
-                                                <th>Imagen</th>
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-
-                                    <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                                <p class="carrito-titulo">Tu carrito</p>
+                                <p class="carrito-vacio" id="carrito-vacio">Aún no agregas cursos.</p>
+                                <table id="lista-carrito" class="u-full-width">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cant.</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <p class="carrito-total">Total <strong id="total-carrito">$0</strong></p>
+                                <a href="#" id="finalizar-compra" class="button button-primary u-full-width">Finalizar compra</a>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar carrito</a>
                             </div>
                     </li>
                 </ul>
@@ -51,10 +59,10 @@
                     <div class="six columns">
                         <div class="contenido-hero">
                                 <h2>Aprende algo nuevo</h2>
-                                <p>Todos los cursos a $15</p>
-                                <form action="#" id="busqueda" method="post" class="formulario">
-                                    <input class="u-full-width" type="text" placeholder="¿Que te gustaría Aprender?" id="buscador">
-                                    <input type="submit" id="submit-buscador" class="submit-buscador">
+                                <p>Todos los cursos a $15 · acceso de por vida</p>
+                                <form action="#" id="busqueda" class="formulario" role="search">
+                                    <input class="u-full-width" type="search" placeholder="¿Qué te gustaría aprender?" id="buscador" aria-label="Buscar cursos">
+                                    <input type="submit" id="submit-buscador" class="submit-buscador" value="Buscar">
                                 </form>
                         </div>
                     </div>
@@ -83,41 +91,43 @@
     </div>
 
     <div id="lista-cursos" class="container">
-        <h1 id="encabezado" class="encabezado">Cursos En Línea</h1>
+        <h1 id="encabezado" class="encabezado">Cursos en línea</h1>
+        <p class="estado-busqueda" id="estado-busqueda" aria-live="polite"></p>
+        <p class="sin-resultados" id="sin-resultados" hidden>No encontramos cursos con esa búsqueda. <a href="#" id="limpiar-busqueda">Ver todos los cursos</a></p>
         <div class="row">
             <div class="four columns">
                 <div class="card">
-                    <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                    <img src="img/curso1.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                     <div class="info-card">
                         <h4>HTML5, CSS3, JavaScript para Principiantes</h4>
                         <p>Juan Pedro</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                         <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar al carrito</a>
                     </div>
                 </div> <!--.card-->
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso2.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Curso de Comida Vegetariana</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar al carrito</a>
                         </div>
                     </div>
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso3.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso3.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Guitarra para Principiantes</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
             </div>
@@ -126,37 +136,37 @@
         <div class="row">
             <div class="four columns">
                 <div class="card">
-                    <img src="img/curso4.jpg" class="imagen-curso u-full-width">
+                    <img src="img/curso4.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                     <div class="info-card">
                         <h4>Huerto en tu casa</h4>
                         <p>Juan Pedro</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                         <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar Al Carrito</a>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar al carrito</a>
                     </div>
                 </div> <!--.card-->
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso5.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso5.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Decoración con productos de tu hogar</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso1.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Diseño Web para Principiantes</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
             </div>
@@ -164,37 +174,37 @@
         <div class="row">
             <div class="four columns">
                 <div class="card">
-                    <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                    <img src="img/curso2.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                     <div class="info-card">
                         <h4>Comida Mexicana para principiantes</h4>
                         <p>Juan Pedro</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                         <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="7">Agregar Al Carrito</a>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="7">Agregar al carrito</a>
                     </div>
                 </div> <!--.card-->
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso3.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso3.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Estudio Musical en tu casa</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="8">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="8">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
             </div>
             <div class="four columns">
                     <div class="card">
-                        <img src="img/curso4.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso4.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Cosecha tus propias frutas y verduras</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="9">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="9">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
             </div>
@@ -202,37 +212,37 @@
         <div class="row">
                 <div class="four columns">
                     <div class="card">
-                        <img src="img/curso5.jpg" class="imagen-curso u-full-width">
+                        <img src="img/curso5.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                         <div class="info-card">
                             <h4>Prepara galletas caseras</h4>
                             <p>Juan Pedro</p>
-                            <img src="img/estrellas.png">
+                            <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                             <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="10">Agregar Al Carrito</a>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="10">Agregar al carrito</a>
                         </div>
                     </div> <!--.card-->
                 </div>
                 <div class="four columns">
                         <div class="card">
-                            <img src="img/curso1.jpg" class="imagen-curso u-full-width">
+                            <img src="img/curso1.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                             <div class="info-card">
                                 <h4>JavaScript Moderno con ES6</h4>
                                 <p>Juan Pedro</p>
-                                <img src="img/estrellas.png">
+                                <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                                 <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                                <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="11">Agregar Al Carrito</a>
+                                <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="11">Agregar al carrito</a>
                             </div>
                         </div> <!--.card-->
                 </div>
                 <div class="four columns">
                         <div class="card">
-                            <img src="img/curso2.jpg" class="imagen-curso u-full-width">
+                            <img src="img/curso2.jpg" class="imagen-curso u-full-width" alt="" loading="lazy">
                             <div class="info-card">
                                 <h4>100 Recetas de Comida Natural</h4>
                                 <p>Juan Pedro</p>
-                                <img src="img/estrellas.png">
+                                <img src="img/estrellas.png" alt="Valoración 4,5 de 5" class="estrellas">
                                 <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
-                                <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="12">Agregar Al Carrito</a>
+                                <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="12">Agregar al carrito</a>
                             </div>
                         </div> <!--.card-->
                 </div>
@@ -243,24 +253,53 @@
         <div class="container">
             <div class="row">
                     <div class="four columns">
-                            <nav id="principal" class="menu">
-                                <a class="enlace" href="#">Para tu Negocio</a>
-                                <a class="enlace" href="#">Conviertete en Instructor</a>
-                                <a class="enlace" href="#">Aplicaciones Móviles</a>
-                                <a class="enlace" href="#">Soporte</a>
-                                <a class="enlace" href="#">Temas</a>
+                            <nav id="principal" class="menu" aria-label="Tienda">
+                                <a class="enlace" href="#lista-cursos">Todos los cursos</a>
+                                <a class="enlace" href="#" data-accion="buscar">Buscar un curso</a>
+                                <a class="enlace" href="#" data-accion="carrito">Ver mi carrito</a>
                             </nav>
                     </div>
                     <div class="four columns">
-                            <nav id="secundaria" class="menu">
-                                <a class="enlace" href="#">¿Quienes Somos?</a>
-                                <a class="enlace" href="#">Empleo</a>
-                                <a class="enlace" href="#">Blog</a>
+                            <nav id="secundaria" class="menu" aria-label="Desarrollador">
+                                <a class="enlace" href="../../index.html">Portafolio del desarrollador</a>
+                                <a class="enlace" href="../../index.html#contacto">Solicitar un sitio como este</a>
                             </nav>
+                    </div>
+                    <div class="four columns">
+                            <p class="creditos">Universidad Online es un sitio de demostración.<br>Diseño y desarrollo: <a href="../../index.html">Nicolás López</a></p>
                     </div>
             </div>
         </div>
     </footer>
+
+    <div class="modal-compra" id="modal-compra" hidden role="dialog" aria-modal="true" aria-labelledby="compra-titulo">
+        <div class="modal-compra__caja">
+            <button type="button" class="modal-compra__cerrar" aria-label="Cerrar">&times;</button>
+            <div id="compra-paso1">
+                <h3 id="compra-titulo">Finalizar compra</h3>
+                <ul class="compra-resumen" id="compra-resumen"></ul>
+                <p class="compra-total">Total: <strong id="compra-total">$0</strong></p>
+                <form id="form-compra" novalidate>
+                    <label for="compra-email">Correo para recibir el acceso</label>
+                    <input class="u-full-width" type="email" id="compra-email" placeholder="tu@correo.com" autocomplete="email" required>
+                    <p class="compra-error" id="compra-error"></p>
+                    <button type="submit" class="button-primary u-full-width">Confirmar compra</button>
+                    <p class="compra-nota">Compra de demostración: no se realizan cobros.</p>
+                </form>
+            </div>
+            <div id="compra-paso2" hidden>
+                <div class="compra-ok">&#10003;</div>
+                <h3>¡Compra confirmada!</h3>
+                <p id="compra-mensaje"></p>
+                <button type="button" class="button-primary" id="compra-listo">Seguir explorando</button>
+            </div>
+        </div>
+    </div>
+
+    <a class="nlp-back" href="../../index.html#proyectos" aria-label="Volver al portafolio de Nicolás López">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span><span class="nlp-back__long">Volver al </span><b>portafolio</b></span>
+    </a>
 
     <script src="js/app.js"></script>
 

@@ -1,0 +1,97 @@
+/* =====================================================
+   Universidad Online — mejoras visuales y del carrito
+   ===================================================== */
+[hidden] { display: none !important; }
+body { color: #333; }
+header { position: sticky; top: 0; z-index: 20; box-shadow: 0 6px 18px -14px rgba(0, 0, 0, .5); padding-bottom: 10px; }
+header ul { margin-bottom: 0; }
+#logo { max-width: 100%; }
+
+/* Botón del carrito */
+.submenu { margin-bottom: 0; }
+.btn-carrito { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 44px; padding: 0; margin: 0; border: 1px solid #e1e1e1; border-radius: 10px; background: #fff; line-height: 1; }
+.btn-carrito:hover, .btn-carrito:focus { border-color: #e44e52; }
+.btn-carrito img { width: 26px; }
+.contador { position: absolute; top: -8px; right: -8px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: #e44e52; color: #fff; font-size: 12px; font-weight: 700; line-height: 22px; text-align: center; }
+.contador.oculto { display: none; }
+.contador.salto { animation: salto .45s ease; }
+@keyframes salto { 40% { transform: scale(1.45); } }
+
+/* Desplegable */
+.submenu:hover #carrito, .submenu.abierto #carrito { display: block; position: absolute; right: 0; top: 100%; z-index: 30; }
+.submenu #carrito { min-height: 0; min-width: 400px; max-width: 92vw; padding: 18px; border-radius: 12px; box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .45); background: #fff; }
+.submenu:not(.abierto) #carrito { margin-top: 0; }
+.carrito-titulo { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.carrito-vacio { color: #888; font-size: 14px; }
+#carrito.vacio #lista-carrito, #carrito.vacio .carrito-total, #carrito.vacio #finalizar-compra, #carrito.vacio #vaciar-carrito { display: none; }
+#lista-carrito { font-size: 13px; margin-bottom: 8px; }
+#lista-carrito th, #lista-carrito td { padding: 8px 6px; }
+#lista-carrito td img { border-radius: 6px; }
+.cantidad { white-space: nowrap; }
+.cantidad a { display: inline-block; width: 22px; height: 22px; line-height: 20px; text-align: center; border: 1px solid #ddd; border-radius: 6px; text-decoration: none; color: #333; }
+.cantidad a:hover { border-color: #e44e52; color: #e44e52; }
+.cantidad span { display: inline-block; min-width: 18px; text-align: center; }
+.borrar-curso { display: inline-block; padding: 2px 8px !important; font-size: 12px; }
+.carrito-total { display: flex; justify-content: space-between; font-size: 16px; border-top: 1px solid #eee; padding-top: 10px; margin-bottom: 12px; }
+#finalizar-compra { margin-bottom: 8px; background: #e44e52; border-color: #e44e52; }
+#finalizar-compra:hover { background: #c93a3e; border-color: #c93a3e; }
+
+/* Hero y buscador */
+#hero { position: relative; }
+#hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 0, 0, .55), transparent 70%); }
+#hero .container { position: relative; }
+.contenido-hero h2 { font-weight: 700; }
+.contenido-hero form #buscador { border-radius: 8px; border: 0; padding-right: 56px; }
+
+/* Grilla de cursos */
+#lista-cursos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+#lista-cursos > h1, #lista-cursos > p { grid-column: 1 / -1; margin-bottom: 0; }
+#lista-cursos > h1 { margin: 40px 0 0; }
+#lista-cursos .row { display: contents; }
+#lista-cursos .row::after, #lista-cursos .row::before { display: none; }
+#lista-cursos .columns { width: auto; margin-left: 0; float: none; }
+.estado-busqueda { text-align: center; color: #666; }
+.sin-resultados { text-align: center; padding: 30px 0; color: #666; }
+.card { height: 100%; border-radius: 12px; overflow: hidden; transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 30px -18px rgba(0, 0, 0, .35); }
+.imagen-curso { aspect-ratio: 16 / 10; object-fit: cover; }
+.info-card { display: flex; flex-direction: column; flex: 1; }
+.info-card h4 { line-height: 1.35; min-height: 44px; }
+.estrellas { height: 16px; width: auto; align-self: flex-start; }
+.agregar-carrito { margin-top: auto !important; border-radius: 8px !important; }
+.agregar-carrito.agregado { background: #2e9e5b !important; border-color: #2e9e5b !important; }
+
+/* Footer */
+.footer { background: #fff; padding-bottom: 80px; }
+.footer .menu a { color: #741d51; }
+.footer .menu a:hover { color: #e44e52; }
+.creditos { font-size: 14px; color: #666; }
+.creditos a { color: #e44e52; font-weight: 700; }
+
+/* Modal de compra */
+.modal-compra { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(20, 10, 16, .7); }
+.modal-compra__caja { position: relative; width: min(440px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6); animation: subir .3s ease both; }
+@keyframes subir { from { opacity: 0; transform: translateY(16px); } }
+.modal-compra__cerrar { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; font-size: 22px; line-height: 36px; background: #f3f3f3; }
+.modal-compra h3 { font-size: 24px; margin-bottom: 14px; }
+.compra-resumen { list-style: none; margin: 0 0 12px; font-size: 14px; }
+.compra-resumen li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #ddd; margin: 0; }
+.compra-total { font-size: 18px; text-align: right; }
+.compra-error { color: #c0392b; font-size: 13px; min-height: 18px; margin: -10px 0 8px; }
+.compra-nota { font-size: 12px; color: #888; text-align: center; margin: 6px 0 0; }
+#compra-paso2 { text-align: center; }
+.compra-ok { width: 64px; height: 64px; margin: 0 auto 12px; border-radius: 50%; background: #2e9e5b; color: #fff; font-size: 32px; line-height: 64px; }
+
+@media (max-width: 800px) {
+	#lista-cursos { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+@media (max-width: 550px) {
+	#lista-cursos { grid-template-columns: 1fr; }
+	.submenu #carrito { position: fixed !important; left: 4vw; right: 4vw; top: 70px !important; min-width: 0; max-width: none; max-height: 75vh; overflow-y: auto; }
+	.submenu:hover:not(.abierto) #carrito { display: none; }
+	header .u-pull-right { float: right; }
+	header .row { display: flex; align-items: center; justify-content: space-between; }
+	header .four.columns { width: auto; }
+	header .two.columns { width: auto; }
+	#logo { max-width: 180px; }
+}

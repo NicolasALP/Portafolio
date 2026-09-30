@@ -1,154 +1,688 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Portafolio Nicolás López</title>
-        <!--FONT OPEN SANS-->
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-        <!--NORMALIZE para resetear los valor por defecto que traen las paginas-->
-        <link rel="stylesheet" href="css/normalize.css">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/estilos.css">
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nicolás López · Desarrollador Web Frontend | Sitios web que convierten</title>
+  <meta name="description" content="Nicolás López, desarrollador web frontend en Santiago de Chile. Creo landing pages, tiendas online y aplicaciones web a medida: rápidas, modernas y 100% responsive. Cotiza tu proyecto sin compromiso.">
+  <meta name="author" content="Nicolás Andrés López Pastén">
+  <meta name="theme-color" content="#05080f">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Nicolás López · Desarrollador Web Frontend">
+  <meta property="og:description" content="Landing pages, tiendas online y aplicaciones web a medida. Rápidas, modernas y pensadas para convertir visitas en clientes.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <script>document.documentElement.classList.add('js');</script>
 
-        <script src="js/jquery-3.5.1.min.js"></script>
-        <script src="js/deslizamiento.js"></script>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-    </head>
-    <body>
-        <header>
-            <div class="contenedor">
-                <nav class="menu">
-                    <a href="#" id="btn-acerca-de" >Acerca de</a>
-                    <a href="#" id="btn-trabajos">Trabajos</a>
-                    <a href="#" id="btn-contacto">Contacto</a>
-                </nav>
-                <div class="contenedor-texto">
-                    <div class="texto">
-                        <h1 class="nombre">Nicolás López</h1>
-                        <h2 class="profesion"><strong>Desarrollador Front end</strong></h2>
-                    </div>
-                </div>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nicolás Andrés López Pastén",
+    "alternateName": "Nicolás López",
+    "jobTitle": "Desarrollador Web Frontend",
+    "email": "mailto:nicolas.lopez.pasten@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Instituto Profesional IACC" },
+    "knowsAbout": ["Desarrollo web", "HTML5", "CSS3", "JavaScript", "Java", "C#", ".NET", "Python", "UX/UI", "Scrum", "Business Intelligence"],
+    "sameAs": [
+      "https://www.linkedin.com/in/nicol%C3%A1s-l%C3%B3pez-past%C3%A9n-b12866334/",
+      "https://github.com/NicolasALP"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="logo" aria-label="Nicolás López — inicio">
+        <span class="logo__bracket">&lt;</span>NicolásLópez<span class="logo__bracket"> /&gt;</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Principal">
+        <a href="#servicios" class="nav__link">Servicios</a>
+        <a href="#proyectos" class="nav__link">Proyectos</a>
+        <a href="#proceso" class="nav__link">Proceso</a>
+        <a href="#sobre-mi" class="nav__link">Sobre mí</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="#contacto" class="btn btn--cta btn--sm nav__cta">Cotizar proyecto <i class="fa-solid fa-arrow-right"></i></a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <canvas class="hero__canvas" id="netCanvas" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="orb orb--blue" aria-hidden="true"></div>
+      <div class="orb orb--violet" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="status-pill" data-reveal>
+            <span class="status-pill__dot"></span> Disponible para nuevos proyectos
+          </p>
+
+          <h1 class="hero__title" data-reveal style="--d:.08s">
+            Desarrollo web que convierte visitas en <span class="text-grad">clientes</span>.
+          </h1>
+
+          <p class="hero__typed mono" data-reveal style="--d:.16s" aria-label="Desarrollo landing pages, tiendas online, aplicaciones web a medida y dashboards de datos">
+            <span class="prompt">$</span> construyo <span class="typed" id="typed">landing pages</span><span class="caret" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero__lead" data-reveal style="--d:.24s">
+            Soy <strong>Nicolás López</strong>, desarrollador frontend y estudiante de Ingeniería en Informática en Santiago de Chile.
+            Diseño y programo sitios <strong>rápidos, modernos y 100% responsive</strong>, pensados para que tus clientes confíen en ti y te contacten.
+          </p>
+
+          <div class="hero__actions" data-reveal style="--d:.32s">
+            <a href="#contacto" class="btn btn--cta btn--lg">
+              <i class="fa-solid fa-rocket"></i> Cotizar mi proyecto
+            </a>
+            <a href="#proyectos" class="btn btn--ghost btn--lg">
+              Ver proyectos <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+
+          <ul class="hero__trust" data-reveal style="--d:.4s">
+            <li><i class="fa-solid fa-circle-check"></i> Cotización sin compromiso</li>
+            <li><i class="fa-solid fa-circle-check"></i> Diseño adaptable a celulares</li>
+            <li><i class="fa-solid fa-circle-check"></i> Comunicación directa contigo</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" data-reveal style="--d:.2s">
+          <div class="code-window" id="codeWindow">
+            <div class="code-window__bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="code-window__tab"><i class="fa-brands fa-js"></i> nicolas.js</span>
+              <span class="code-window__tab code-window__tab--dim">proyecto.css</span>
             </div>
+            <pre class="code-window__body mono" aria-hidden="true"><code id="codeTyper"></code><span class="code-caret"></span></pre>
+            <div class="code-window__status mono">
+              <span><i class="fa-solid fa-code-branch"></i> main</span>
+              <span class="ok"><i class="fa-solid fa-circle-check"></i> 0 errores</span>
+              <span>UTF-8</span>
+            </div>
+          </div>
+
+          <div class="terminal-card mono" aria-hidden="true">
+            <p><span class="t-green">➜</span> <span class="t-cyan">~/tu-proyecto</span> npm run deploy</p>
+            <p class="t-dim" id="termLine1">compilando recursos…</p>
+            <p class="t-green" id="termLine2">✓ sitio publicado y en línea</p>
+          </div>
+
+          <div class="float-chip float-chip--1" aria-hidden="true"><i class="fa-brands fa-html5"></i> HTML5</div>
+          <div class="float-chip float-chip--2" aria-hidden="true"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+          <div class="float-chip float-chip--3" aria-hidden="true"><i class="fa-brands fa-js"></i> JavaScript</div>
+          <div class="float-chip float-chip--4" aria-hidden="true"><i class="fa-brands fa-python"></i> Python</div>
+        </div>
+      </div>
+
+      <a href="#stack" class="hero__scroll" aria-label="Bajar">
+        <span class="mouse"><span></span></span>
+      </a>
+    </section>
+
+    <!-- ============ STACK MARQUEE ============ -->
+    <section class="stack" id="stack" aria-label="Tecnologías">
+      <div class="marquee">
+        <div class="marquee__track">
+          <span class="tech"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tech"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="tech"><i class="fa-brands fa-sass"></i> Sass</span>
+          <span class="tech"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tech"><i class="fa-solid fa-code"></i> jQuery</span>
+          <span class="tech"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+          <span class="tech"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+          <span class="tech"><i class="fa-brands fa-java"></i> Java</span>
+          <span class="tech"><i class="fa-solid fa-hashtag"></i> C#</span>
+          <span class="tech"><i class="fa-brands fa-microsoft"></i> .NET</span>
+          <span class="tech"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tech"><i class="fa-brands fa-github"></i> GitHub</span>
+          <span class="tech"><i class="fa-solid fa-chart-line"></i> Business Intelligence</span>
+          <span class="tech"><i class="fa-solid fa-arrows-spin"></i> Scrum</span>
+          <span class="tech"><i class="fa-solid fa-pen-ruler"></i> UX/UI</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="stats" data-reveal>
+          <div class="stat">
+            <span class="stat__num"><span data-count="6">0</span></span>
+            <span class="stat__label">proyectos web en vivo</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="12">0</span>+</span>
+            <span class="stat__label">tecnologías y herramientas</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="100">0</span>%</span>
+            <span class="stat__label">diseños responsive</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">1:1</span>
+            <span class="stat__label">trato directo, sin intermediarios</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono">// servicios</p>
+          <h2 class="section-title">Soluciones digitales para <span class="text-grad">hacer crecer tu negocio</span></h2>
+          <p class="section-sub">Elige lo que necesitas hoy. Si no sabes por dónde empezar, conversemos y te propongo la mejor opción para tu presupuesto.</p>
         </header>
 
-        <section class="main">
-            <section class="acerca-de" id="acercaDe">
-                <div class="contenedor">
-                    <div class="foto">
-                        <img src="img/foto.jpg" width="115" height="115" alt="Nicolás López">
-                    </div>
-                    <div class="texto">
-                        <h3 class="titulo">Acerca de Nicolás</h3>
-                        <p>Desarrollador Web con habilidades en <span class="bold">HTML</span>, <span class="bold">CSS</span>, <span class="bold">Diseño responsivo</span>, <span class="bold">JavaScript</span>.<br/> Certificado en Orientación a objetos con Python. <br>
-                        <span class="bold">Constante retroalimentación</span> de conocimientos en nuevas tecnologias y formas de desarrollo.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="trabajos" id="trabajos">
-                <div class="contenedor">
-                    <h3 class="titulo"><strong>Trabajos</strong></h3>
-                    <div class="contenedor-trabajos">
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/restaurante/index.html"><img src="img/trabajos/cafepreto.jpg"  alt="Restaurant"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/restaurante/index.html"><p class="nombre">Restaurante</p></a>
-                                <p class="categoria">HTML - CSS - JavaScript</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/Bootstrap3/index.html"><img src="img/trabajos/tecnologi .jpg"  alt="Tienda tecnologica"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/Bootstrap3/index.html"><p class="nombre">Tienda con carrusel</p></a>
-                                <p class="categoria">HTML - CSS - Flexbox</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/Startup/index.html"><img src="img/trabajos/business.jpg"  alt="Blog"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/Startup/index.html"><p class="nombre">Venta de servicios</p></a>
-                                <p class="categoria">HTML - CSS - Flexbox</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/Proyecto/index.html"><img src="img/trabajos/oni.jpg"  alt="Adaptable"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/Proyecto/index.html"><p class="nombre">Paginas de información</p></a>
-                                <p class="categoria">HTML - CSS - Bootstrap</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/Carrito/index.html"><img src="img/trabajos/carrito.jpg"  alt="Carrito"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/Carrito/index.html"><p class="nombre">Carro de compras</p></a>
-                                <p class="categoria">HTML - CSS - Javascript</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <a href="enlaces/Formulario/index.html"><img src="img/trabajos/formulario.jpg"  alt="Medidas de seguridad"></a>
-                            </div>
-                            <div class="descripcion">
-                                <a href="enlaces/Formulario/index.html"><p class="nombre">Validación de formularios</p></a>
-                                <p class="categoria">Comprobación de campos y envío</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <img src="img/trabajos/8.jpg"  alt="Juegos">
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Trabajos Publicitarios</p>
-                                <p class="categoria">Diseño y publicidad de videojuegos</p>
-                            </div>
-                        </div>
-                        <div class="trabajo">
-                            <div class="thumb">
-                                <img src="img/trabajos/6.jpg"  alt="Compromiso">
-                            </div>
-                            <div class="descripcion">
-                                <p class="nombre">Compromiso con el Desarrollo</p>
-                                <p class="categoria">Desarrollando nuevas formas de avanzar</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
+        <div class="services">
+          <article class="service card card--featured" data-reveal>
+            <span class="badge badge--cta">Más solicitado</span>
+            <div class="service__icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>Landing pages y sitios web</h3>
+            <p>Tu negocio con presencia profesional en internet: un sitio claro, rápido y diseñado para que te escriban.</p>
+            <ul class="checklist">
+              <li>Diseño a medida y responsive</li>
+              <li>Formulario de contacto y WhatsApp</li>
+              <li>Optimizado para velocidad y SEO básico</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Landing page / sitio web">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-        <footer>
-            <section class="contacto" id="contacto">
-                <div class="contenedor">
+          <article class="service card" data-reveal style="--d:.06s">
+            <div class="service__icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h3>Tiendas online y catálogos</h3>
+            <p>Muestra tus productos las 24 horas y recibe pedidos desde el celular de tus clientes.</p>
+            <ul class="checklist">
+              <li>Catálogo con filtros y buscador</li>
+              <li>Carrito de compras y pedidos</li>
+              <li>Fácil de actualizar</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Tienda online / catálogo">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-                    <h3 class="titulo">Contacto</h3>
-                    <h3 class="titulo" id="contacto"><strong>nicolas.lopez.pasten@gmail.com</strong></h3>
+          <article class="service card" data-reveal style="--d:.12s">
+            <div class="service__icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Aplicaciones web a medida</h3>
+            <p>Sistemas para ordenar tu operación: registros, inventario, reservas o gestión interna.</p>
+            <ul class="checklist">
+              <li>Arquitectura por capas escalable</li>
+              <li>Java, C# / .NET o Python</li>
+              <li>Desarrollo ágil con entregas por etapas</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Aplicación web a medida">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-                    
+          <article class="service card" data-reveal style="--d:.18s">
+            <div class="service__icon"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3>Diseño UX/UI y rediseño</h3>
+            <p>Moderniza un sitio antiguo o valida tu idea con prototipos antes de invertir en desarrollo.</p>
+            <ul class="checklist">
+              <li>Wireframes y prototipos</li>
+              <li>Design Thinking centrado en usuarios</li>
+              <li>Interfaces modernas y accesibles</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Diseño UX/UI o rediseño">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service card" data-reveal style="--d:.24s">
+            <div class="service__icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Dashboards y datos</h3>
+            <p>Convierte tus planillas en información útil para decidir con datos y no con supuestos.</p>
+            <ul class="checklist">
+              <li>Modelado y limpieza de datos</li>
+              <li>Paneles e indicadores (KPI)</li>
+              <li>Reportes de Business Intelligence</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Dashboard / análisis de datos">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service card" data-reveal style="--d:.3s">
+            <div class="service__icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Soporte y mantenimiento</h3>
+            <p>Tu sitio siempre funcionando: corrijo errores, actualizo contenido y te acompaño después de la entrega.</p>
+            <ul class="checklist">
+              <li>Corrección de errores</li>
+              <li>Actualizaciones y mejoras</li>
+              <li>Ayuda con dominio y hosting</li>
+            </ul>
+            <a href="#contacto" class="service__link" data-service="Soporte y mantenimiento">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="section section--alt" id="proyectos">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono">// proyectos</p>
+          <h2 class="section-title">Proyectos <span class="text-grad">funcionando en vivo</span></h2>
+          <p class="section-sub">Pruébalos tú mismo: cada demo es un sitio real y navegable. Pasa el cursor sobre la imagen para recorrer la página.</p>
+        </header>
+
+        <div class="filters" role="toolbar" aria-label="Filtrar proyectos" data-reveal>
+          <button class="filter is-active" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter" data-filter="web" aria-pressed="false">Sitios web</button>
+          <button class="filter" data-filter="ecommerce" aria-pressed="false">E-commerce</button>
+          <button class="filter" data-filter="js" aria-pressed="false">JavaScript</button>
+          <button class="filter" data-filter="ui" aria-pressed="false">UI / UX</button>
+        </div>
+
+        <div class="projects" id="projectsGrid">
+          <article class="project card" data-cat="web js ui" data-reveal>
+            <a class="project__media" href="enlaces/Proyecto/index.html" target="_blank" rel="noopener" aria-label="Abrir demo de ONI">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/Proyecto</span></span>
+              <img src="img/proyectos/oni.webp" alt="Captura del portal de videojuegos ONI" loading="lazy" width="960" height="1650">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">Portal de noticias</p>
+              <h3>ONI — Videojuegos Report</h3>
+              <p>Portal gamer con slider automático, buscador en vivo, lector de artículos, newsletter y diseño oscuro de alto impacto.</p>
+              <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/Proyecto/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/Proyecto" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card" data-cat="web ui" data-reveal style="--d:.06s">
+            <a class="project__media" href="enlaces/restaurante/index.html" target="_blank" rel="noopener" aria-label="Abrir demo de Café Preto">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/restaurante</span></span>
+              <img src="img/proyectos/cafe-preto.webp" alt="Captura del sitio de la cafetería Café Preto" loading="lazy" width="960" height="1650">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">Sitio para cafetería</p>
+              <h3>Café Preto</h3>
+              <p>Sitio con efecto parallax, menú, galería con visor de fotos y reservas en línea que se agregan al calendario del cliente.</p>
+              <ul class="tags"><li>HTML5</li><li>Sass</li><li>jQuery</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/restaurante/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/restaurante" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card" data-cat="ecommerce js" data-reveal style="--d:.12s">
+            <a class="project__media" href="enlaces/Bootstrap3/index.html" target="_blank" rel="noopener" aria-label="Abrir demo de la tienda PretoTecnologi">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/Bootstrap3</span></span>
+              <img src="img/proyectos/tienda-tech.webp" alt="Captura de la tienda de tecnología PretoTecnologi" loading="lazy" width="960" height="1487">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">E-commerce</p>
+              <h3>PretoTecnologi — Tienda tech</h3>
+              <p>Tienda con carrusel, filtros por categoría, buscador, ficha de producto, carrito persistente y proceso de compra.</p>
+              <ul class="tags"><li>Bootstrap</li><li>jQuery</li><li>JavaScript</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/Bootstrap3/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/Bootstrap3" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card" data-cat="ecommerce js" data-reveal>
+            <a class="project__media" href="enlaces/Carrito/index.html" target="_blank" rel="noopener" aria-label="Abrir demo del carrito de cursos">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/Carrito</span></span>
+              <img src="img/proyectos/cursos.webp" alt="Captura del catálogo de cursos con carrito de compras" loading="lazy" width="960" height="1650">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">Carrito de compras</p>
+              <h3>Universidad Online</h3>
+              <p>Catálogo de cursos con buscador, carrito con cantidades y total, guardado automático en el navegador y compra de prueba.</p>
+              <ul class="tags"><li>JavaScript</li><li>LocalStorage</li><li>Skeleton CSS</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/Carrito/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/Carrito" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card" data-cat="web ui" data-reveal style="--d:.06s">
+            <a class="project__media" href="enlaces/Startup/index.html" target="_blank" rel="noopener" aria-label="Abrir demo de Preto Business">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/Startup</span></span>
+              <img src="img/proyectos/startup.webp" alt="Captura de la landing de servicios Preto Business" loading="lazy" width="960" height="1650">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">Landing de servicios</p>
+              <h3>Preto Business</h3>
+              <p>Landing para una empresa de servicios en la nube: planes mensual/anual, formulario de contratación y secciones de confianza.</p>
+              <ul class="tags"><li>Bootstrap Grid</li><li>Sass</li><li>JavaScript</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/Startup/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/Startup" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project card" data-cat="js ui" data-reveal style="--d:.12s">
+            <a class="project__media" href="enlaces/Formulario/index.html" target="_blank" rel="noopener" aria-label="Abrir demo del formulario con validación">
+              <span class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url mono">enlaces/Formulario</span></span>
+              <img src="img/proyectos/formulario.webp" alt="Captura del formulario de envío de correo con validación" loading="lazy" width="960" height="786">
+            </a>
+            <div class="project__body">
+              <p class="project__type mono">Validación de formularios</p>
+              <h3>Formulario de correo</h3>
+              <p>Validación en tiempo real con expresiones regulares, mensajes de error claros y envío real a través de tu aplicación de correo.</p>
+              <ul class="tags"><li>JavaScript</li><li>Tailwind CSS</li><li>RegEx</li></ul>
+              <div class="project__actions">
+                <a class="btn btn--primary btn--sm" href="enlaces/Formulario/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/NicolasALP/Portafolio/tree/main/enlaces/Formulario" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--featured card" data-cat="web ui" data-reveal>
+            <div class="project__body">
+              <p class="status-pill status-pill--amber"><span class="status-pill__dot"></span> En desarrollo · Proyecto de título</p>
+              <h3>La Mesa — Plataforma para coleccionistas</h3>
+              <p>Plataforma web para la gestión y el comercio de artículos coleccionables, pensada para comunidades de juegos de mesa y TCG de Santiago, Valparaíso y Copiapó. Validada con encuestas a tiendas especializadas del rubro.</p>
+              <ul class="tags"><li>Arquitectura N-capas</li><li>Scrum</li><li>UX/UI</li><li>Modelo de datos</li></ul>
+            </div>
+            <div class="arch" aria-label="Diagrama de arquitectura por capas">
+              <div class="arch__layer"><i class="fa-solid fa-display"></i><span><b>Presentación</b><small>Interfaz web responsive</small></span></div>
+              <div class="arch__arrow" aria-hidden="true"></div>
+              <div class="arch__layer"><i class="fa-solid fa-gears"></i><span><b>Lógica de negocio</b><small>Catálogo · intercambios · usuarios</small></span></div>
+              <div class="arch__arrow" aria-hidden="true"></div>
+              <div class="arch__layer"><i class="fa-solid fa-database"></i><span><b>Datos</b><small>Modelo relacional (DER)</small></span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="section" id="proceso">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono">// cómo trabajo</p>
+          <h2 class="section-title">Un proceso <span class="text-grad">claro y sin sorpresas</span></h2>
+          <p class="section-sub">Trabajo con metodología ágil: ves avances en cada etapa y das tu opinión antes de seguir. Así el resultado es exactamente lo que necesitas.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step card" data-reveal>
+            <span class="step__num mono">01</span>
+            <div class="step__icon"><i class="fa-solid fa-comments"></i></div>
+            <h3>Conversemos</h3>
+            <p>Me cuentas tu idea y tus objetivos. Defino el alcance y te envío una cotización detallada.</p>
+          </li>
+          <li class="step card" data-reveal style="--d:.08s">
+            <span class="step__num mono">02</span>
+            <div class="step__icon"><i class="fa-solid fa-object-group"></i></div>
+            <h3>Diseño</h3>
+            <p>Creo la propuesta visual y la estructura. Nada se programa hasta que tú la apruebes.</p>
+          </li>
+          <li class="step card" data-reveal style="--d:.16s">
+            <span class="step__num mono">03</span>
+            <div class="step__icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Desarrollo</h3>
+            <p>Programo por etapas (sprints) y te muestro avances reales para ajustar a tiempo.</p>
+          </li>
+          <li class="step card" data-reveal style="--d:.24s">
+            <span class="step__num mono">04</span>
+            <div class="step__icon"><i class="fa-solid fa-rocket"></i></div>
+            <h3>Lanzamiento</h3>
+            <p>Publico tu sitio, reviso que todo funcione en cada dispositivo y te acompaño después.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="section section--alt" id="sobre-mi">
+      <div class="container about">
+        <div class="about__photo" data-reveal>
+          <div class="photo-frame">
+            <img src="img/foto.jpg" alt="Nicolás López" width="500" height="500" loading="lazy">
+          </div>
+          <div class="about__badge about__badge--1"><i class="fa-solid fa-graduation-cap"></i> Ing. en Informática · IACC</div>
+          <div class="about__badge about__badge--2"><i class="fa-solid fa-location-dot"></i> Santiago, Chile</div>
+        </div>
+
+        <div class="about__content">
+          <header data-reveal>
+            <p class="eyebrow mono">// sobre mí</p>
+            <h2 class="section-title">Tecnología que resuelve <span class="text-grad">problemas reales</span></h2>
+          </header>
+          <div data-reveal style="--d:.08s">
+            <p>Soy estudiante de Ingeniería en Informática en el Instituto IACC y trabajo como <strong>SW/App/Cloud Tech Support Associate en Accenture Chile</strong>. Me mueve una idea simple: la tecnología vale cuando resuelve problemas reales de las personas que la usan.</p>
+            <p>He liderado el desarrollo frontend en equipos ágiles, participado en el rediseño de interfaces con Design Thinking y modelado datos para soluciones de Business Intelligence. Me gusta construir sobre bases sólidas: arquitecturas modulares, un backlog bien priorizado y decisiones validadas con datos.</p>
+          </div>
+
+          <div class="skills" data-reveal style="--d:.16s">
+            <div class="skills__group">
+              <h3 class="mono"><i class="fa-solid fa-display"></i> Frontend</h3>
+              <ul class="tags"><li>HTML5</li><li>CSS3 / Sass</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>Tailwind</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3 class="mono"><i class="fa-solid fa-server"></i> Lenguajes y backend</h3>
+              <ul class="tags"><li>Java</li><li>C# / .NET</li><li>Python (POO certificado)</li></ul>
+            </div>
+            <div class="skills__group">
+              <h3 class="mono"><i class="fa-solid fa-diagram-project"></i> Metodologías</h3>
+              <ul class="tags"><li>Scrum</li><li>Design Thinking</li><li>UX/UI</li><li>Arquitectura N-capas</li><li>Business Intelligence</li></ul>
+            </div>
+          </div>
+
+          <div class="about__actions" data-reveal style="--d:.24s">
+            <a class="btn btn--cta" href="#contacto"><i class="fa-solid fa-handshake"></i> Trabajemos juntos</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/nicol%C3%A1s-l%C3%B3pez-past%C3%A9n-b12866334/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a class="btn btn--ghost" href="https://github.com/NicolasALP" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono">// preguntas frecuentes</p>
+          <h2 class="section-title">Resolvamos tus <span class="text-grad">dudas</span></h2>
+        </header>
+
+        <div class="faq" data-reveal>
+          <details class="faq__item">
+            <summary>¿Cuánto cuesta un sitio web?</summary>
+            <div class="faq__answer"><p>Depende del alcance: cantidad de secciones, funcionalidades (carrito, reservas, formularios) e integraciones. Después de una conversación breve te envío una cotización detallada y sin compromiso, para que sepas exactamente qué incluye.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cuánto tiempo demora el proyecto?</summary>
+            <div class="faq__answer"><p>En la cotización te indico plazos claros por etapa. Trabajo con entregas parciales, así que verás avances funcionando desde las primeras semanas.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Qué necesito para empezar?</summary>
+            <div class="faq__answer"><p>Solo una idea de lo que quieres lograr. Si tienes logo, colores, textos o sitios de referencia que te gusten, mejor; si no, los definimos juntos en la etapa de diseño.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Mi sitio se verá bien en celulares?</summary>
+            <div class="faq__answer"><p>Sí. Todos mis proyectos son responsive: se adaptan a celulares, tablets y computadores, y los pruebo en distintos tamaños de pantalla antes de entregarlos.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Ofreces soporte después de la entrega?</summary>
+            <div class="faq__answer"><p>Sí. Te ayudo con la publicación, dominio y hosting, y puedo encargarme de correcciones, actualizaciones y mejoras cuando lo necesites.</p></div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Trabajas con clientes fuera de Santiago?</summary>
+            <div class="faq__answer"><p>Sí. Trabajo de forma remota, así que podemos coordinar por videollamada, correo o mensajería desde cualquier ciudad.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section section--alt" id="contacto">
+      <div class="container">
+        <div class="cta-panel" data-reveal>
+          <div>
+            <p class="eyebrow mono">// siguiente paso</p>
+            <h2 class="section-title">¿Tienes un proyecto en mente? <span class="text-grad">Hagámoslo realidad.</span></h2>
+            <p class="section-sub">Cuéntame qué necesitas y te respondo con una propuesta a tu medida.</p>
+            <ul class="cta-panel__points">
+              <li><i class="fa-solid fa-user-check"></i> Te respondo personalmente</li>
+              <li><i class="fa-solid fa-file-signature"></i> Propuesta con alcance y plazos claros</li>
+              <li><i class="fa-solid fa-mobile-screen"></i> Sitios listos para celulares</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact">
+          <aside class="contact__info" data-reveal>
+            <h3>Hablemos de tu proyecto</h3>
+            <p>Escríbeme por el formulario o directamente por el canal que prefieras.</p>
+
+            <ul class="channels">
+              <li class="channel">
+                <span class="channel__icon"><i class="fa-solid fa-envelope"></i></span>
+                <span class="channel__text">
+                  <small>Correo</small>
+                  <a href="mailto:nicolas.lopez.pasten@gmail.com">nicolas.lopez.pasten@gmail.com</a>
+                </span>
+                <button class="channel__copy" type="button" data-copy="nicolas.lopez.pasten@gmail.com" aria-label="Copiar correo"><i class="fa-regular fa-copy"></i></button>
+              </li>
+              <li class="channel">
+                <span class="channel__icon"><i class="fa-brands fa-linkedin-in"></i></span>
+                <span class="channel__text">
+                  <small>LinkedIn</small>
+                  <a href="https://www.linkedin.com/in/nicol%C3%A1s-l%C3%B3pez-past%C3%A9n-b12866334/" target="_blank" rel="noopener">Nicolás López Pastén</a>
+                </span>
+              </li>
+              <li class="channel">
+                <span class="channel__icon"><i class="fa-brands fa-github"></i></span>
+                <span class="channel__text">
+                  <small>GitHub</small>
+                  <a href="https://github.com/NicolasALP" target="_blank" rel="noopener">github.com/NicolasALP</a>
+                </span>
+              </li>
+              <li class="channel">
+                <span class="channel__icon"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="channel__text">
+                  <small>Ubicación</small>
+                  <span>Santiago, Chile · trabajo remoto</span>
+                </span>
+              </li>
+            </ul>
+          </aside>
+
+          <form class="contact__form card" id="contactForm" novalidate data-reveal style="--d:.08s">
+            <div class="form-grid">
+              <div class="field">
+                <label for="cf-name">Nombre <span aria-hidden="true">*</span></label>
+                <input id="cf-name" name="nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?" required minlength="2">
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="cf-email">Correo <span aria-hidden="true">*</span></label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="cf-phone">Teléfono / WhatsApp <small>(opcional)</small></label>
+                <input id="cf-phone" name="telefono" type="tel" autocomplete="tel" placeholder="+56 9 …">
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="cf-service">¿Qué necesitas?</label>
+                <div class="select">
+                  <select id="cf-service" name="servicio">
+                    <option>Landing page / sitio web</option>
+                    <option>Tienda online / catálogo</option>
+                    <option>Aplicación web a medida</option>
+                    <option>Diseño UX/UI o rediseño</option>
+                    <option>Dashboard / análisis de datos</option>
+                    <option>Soporte y mantenimiento</option>
+                    <option>Otro / aún no lo sé</option>
+                  </select>
                 </div>
-            </section>
-            
-            <section class="redes-sociales">
-                <h3 class="titulo-redes">Visita mis redes sociales</h3>
-                <div class="contenedor">
-                    
-                    <a href="https://www.facebook.com/nicolas.lopez.pasten/" class="facebook"><i class="fa fa-facebook-official"></i></a>
-                    <a href="https://www.instagram.com/opie_winston._/?hl=es-la" class="instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="https://youtube.com" class="youtube"><i class="fa fa-youtube-play"></i></a>
-                    <a href="https://www.linkedin.com/in/nicolás-lopez-pasten" class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    
-                </div>
-            </section>
-        </footer>
-    </body>
+              </div>
+              <div class="field field--full">
+                <label for="cf-message">Cuéntame sobre tu proyecto <span aria-hidden="true">*</span></label>
+                <textarea id="cf-message" name="mensaje" rows="5" placeholder="Qué hace tu negocio, qué te gustaría lograr y si tienes una fecha en mente." required minlength="10"></textarea>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            </div>
+
+            <button class="btn btn--cta btn--lg btn--block" type="submit" id="cfSubmit">
+              <span class="btn__label"><i class="fa-solid fa-paper-plane"></i> Enviar mensaje</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-note"><i class="fa-solid fa-lock"></i> Tus datos solo se usan para responderte.</p>
+
+            <div class="form-success" id="formSuccess" hidden>
+              <div class="form-success__icon"><i class="fa-solid fa-check"></i></div>
+              <h3>¡Mensaje enviado!</h3>
+              <p id="formSuccessText">Gracias por escribir. Te responderé a la brevedad.</p>
+              <button type="button" class="btn btn--ghost btn--sm" id="formReset">Enviar otro mensaje</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#inicio" class="logo"><span class="logo__bracket">&lt;</span>NicolásLópez<span class="logo__bracket"> /&gt;</span></a>
+        <p>Desarrollo web frontend, diseño UX/UI y soluciones a medida para negocios que quieren crecer en digital.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/nicol%C3%A1s-l%C3%B3pez-past%C3%A9n-b12866334/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/NicolasALP" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:nicolas.lopez.pasten@gmail.com" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.instagram.com/opie_winston._/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/nicolas.lopez.pasten/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <nav class="footer__col" aria-label="Secciones">
+        <h4 class="mono">Navegación</h4>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <nav class="footer__col" aria-label="Demos">
+        <h4 class="mono">Demos en vivo</h4>
+        <a href="enlaces/Proyecto/index.html" target="_blank" rel="noopener">ONI Videojuegos</a>
+        <a href="enlaces/restaurante/index.html" target="_blank" rel="noopener">Café Preto</a>
+        <a href="enlaces/Bootstrap3/index.html" target="_blank" rel="noopener">PretoTecnologi</a>
+        <a href="enlaces/Carrito/index.html" target="_blank" rel="noopener">Universidad Online</a>
+        <a href="enlaces/Startup/index.html" target="_blank" rel="noopener">Preto Business</a>
+        <a href="enlaces/Formulario/index.html" target="_blank" rel="noopener">Formulario de correo</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom mono">
+      <p>© <span id="year">2026</span> Nicolás López Pastén</p>
+      <p>Hecho con <i class="fa-solid fa-code"></i> y <i class="fa-solid fa-mug-hot"></i> en Santiago de Chile</p>
+    </div>
+  </footer>
+
+  <a href="#contacto" class="mobile-cta btn btn--cta" id="mobileCta"><i class="fa-solid fa-rocket"></i> Cotizar mi proyecto</a>
+  <button class="to-top" id="toTop" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>

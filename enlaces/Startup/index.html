@@ -2,33 +2,39 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Preto Business · Tu empresa en la nube</title>
+	<meta name="description" content="Landing de demostración para una empresa de servicios en la nube, con planes mensuales y anuales y formulario de contratación. Desarrollada por Nicolás López.">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../../assets/css/fonts-demos.css">
 	<link rel="stylesheet" href="css/estilos.css">
-	<title>Pagina de Startup</title>
+	<link rel="stylesheet" href="css/mejoras.css">
+	<link rel="stylesheet" href="../../assets/css/demo-bar.css">
 </head>
 <body>
-	<header>
+	<header id="inicio">
 		<div class="container">
 			<div class="row contenedor_logo_menu">
-
-				
-				<div class="menu col-xs-12 col-md-6">
-					<a href="#">Productos</a>
-					<a href="#">Precio</a>
-					<a href="#">Contacto</a>
+				<div class="logo col-xs-12 col-md-5">
+					<a href="#inicio" class="logo-texto"><i class="fa fa-cloud"></i> Preto <b>Business</b></a>
 				</div>
+				<nav class="menu col-xs-12 col-md-7" aria-label="Principal">
+					<a href="#caracteristicas">Características</a>
+					<a href="#precios">Planes</a>
+					<a href="#opiniones">Opiniones</a>
+					<a href="#contacto">Contacto</a>
+				</nav>
 			</div>
 
 			<div class="row textos">
 				<div class="col-md-12">
-					<h2 class="primera_linea"><strong>Preto Business</strong></h2>
-					<h3 class="segunda_linea">Duis aute irure dolor in reprehenderit</h3>
+					<p class="etiqueta">Prueba gratis durante 14 días</p>
+					<h1 class="primera_linea"><strong>Tu empresa en la nube, sin complicaciones</strong></h1>
+					<h2 class="segunda_linea">Correo corporativo, archivos respaldados y tu propio dominio en un solo lugar.</h2>
 					<div class="contenedor-btns">
-						<a href="#">Características</a>
-						<a href="#">Comprar Ahora</a>
+						<a href="#caracteristicas">Características</a>
+						<a href="#precios" class="btn-destacado">Ver planes y precios</a>
 					</div>
 				</div>
 			</div>
@@ -36,7 +42,7 @@
 	</header>
 
 	<section class="main">
-		<section class="caracteristicas">
+		<section class="caracteristicas" id="caracteristicas">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -47,18 +53,18 @@
 				<div class="row">
 					<div class="col-sm-4 caracteristica">
 						<img src="img/icono1.png" alt="" class="icono">
-						<h4 class="primera_linea">Lorem Ipsum</h4>
-						<p class="parrafo">Dolor sit amet, consectetur adipiscing elit. In dignissim odio ut sagittis elementum.</p>
+						<h4 class="primera_linea">Tu sitio siempre en línea</h4>
+						<p class="parrafo">Hosting rápido con 99,9% de disponibilidad y certificado de seguridad SSL incluido en todos los planes.</p>
 					</div>
 					<div class="col-sm-4 caracteristica">
 						<img src="img/icono2.png" alt="" class="icono">
-						<h4 class="primera_linea">Aenean rhoncus augue</h4>
-						<p class="parrafo">Curabitur nisi enim, placerat ac convallis id, posuere vehicula ligula.</p>
+						<h4 class="primera_linea">Todo tu equipo organizado</h4>
+						<p class="parrafo">Correo con tu dominio, calendario y carpetas compartidas para trabajar desde cualquier lugar.</p>
 					</div>
 					<div class="col-sm-4 caracteristica">
 						<img src="img/icono3.png" alt="" class="icono">
-						<h4 class="primera_linea">Praesent</h4>
-						<p class="parrafo">Nulla diam mi, pharetra eget mattis sed, mollis non ligula.</p>
+						<h4 class="primera_linea">Soporte cuando lo necesitas</h4>
+						<p class="parrafo">Atención en español por chat y correo los 7 días de la semana. Te ayudamos a migrar sin costo.</p>
 					</div>
 				</div>
 			</div>
@@ -69,22 +75,22 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row foto">
-							<div class="col-xs-4 thumb">
-								<img src="img/thumb1.jpg" alt="">
+							<div class="col-xs-12 col-sm-4 thumb">
+								<img src="img/thumb1.jpg" alt="Panel de administración en una tablet">
 							</div>
-							<div class="col-xs-8 texto">
-								<h2 class="titulo azul">Vivamus ultricies lacus eu ligula porttitor</h2>
-								<p class="parrafo">Aenean rhoncus augue nec finibus malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec diam odio, dictum non gravida in, suscipit id est.</p>
+							<div class="col-xs-12 col-sm-8 texto">
+								<h2 class="titulo azul">Administra todo desde un solo panel</h2>
+								<p class="parrafo">Crea cuentas de correo, revisa el espacio usado y gestiona los permisos de tu equipo con unos pocos clics. Sin conocimientos técnicos y desde el computador o el celular.</p>
 							</div>
 						</div>
-					
+
 						<div class="row foto">
-							<div class="col-xs-8 texto">
-								<h2 class="titulo naranja derecha">Aliquam ligula erat, porttitor</h2>
-								<p class="parrafo derecha">Nunc a semper felis. Ut at tellus massa. Nulla sit amet massa blandit, accumsan orci in, gravida massa. Sed mollis, est at porttitor volutpat, est augue molestie mi, ut pretium quam nunc sed dui. Nunc sed purus nunc.</p>
+							<div class="col-xs-12 col-sm-8 col-sm-push-0 texto">
+								<h2 class="titulo naranja derecha">Respaldos automáticos todos los días</h2>
+								<p class="parrafo derecha">Tus documentos y correos se respaldan cada noche en centros de datos seguros. Si algo sale mal, recuperas cualquier archivo de los últimos 30 días en segundos.</p>
 							</div>
-							<div class="col-xs-4 thumb">
-								<img src="img/thumb2.jpg" alt="">
+							<div class="col-xs-12 col-sm-4 thumb">
+								<img src="img/thumb2.jpg" alt="Notebook en un escritorio de trabajo">
 							</div>
 						</div>
 					</div>
@@ -96,103 +102,102 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="titulo">Nuestros Clientes</h3>
+						<h3 class="titulo">Conecta tus redes sociales</h3>
+						<p class="subtitulo-claro">Publica novedades en todas tus redes desde el mismo panel.</p>
 					</div>
 				</div>
-										
+
 				<div class="row">
-					<div class="cliente col-xs-6 col-md-3">
-						<a href="#"><img src="img/cliente1.png" alt=""></a>
-					</div>
-					<div class="cliente col-xs-6 col-md-3">
-						<a href="#"><img src="img/cliente2.png" alt=""></a>
-					</div>
-					<div class="cliente col-xs-6 col-md-3">
-						<a href="#"><img src="img/cliente3.png" alt=""></a>
-					</div>
-					<div class="cliente col-xs-6 col-md-3">
-						<a href="#"><img src="img/cliente4.png" alt=""></a>
-					</div>
+					<div class="cliente col-xs-6 col-md-3"><img src="img/cliente1.png" alt="Facebook"></div>
+					<div class="cliente col-xs-6 col-md-3"><img src="img/cliente2.png" alt="Twitter"></div>
+					<div class="cliente col-xs-6 col-md-3"><img src="img/cliente3.png" alt="Instagram"></div>
+					<div class="cliente col-xs-6 col-md-3"><img src="img/cliente4.png" alt="YouTube"></div>
 				</div>
 			</div>
 		</section>
 
-		<section class="precios">
+		<section class="precios" id="precios">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="titulo">Precios</h3>
+						<h3 class="titulo">Planes</h3>
+						<div class="facturacion" role="radiogroup" aria-label="Tipo de facturación">
+							<button type="button" class="facturacion__op activo" data-ciclo="mensual" role="radio" aria-checked="true">Mensual</button>
+							<button type="button" class="facturacion__op" data-ciclo="anual" role="radio" aria-checked="false">Anual <span>-20%</span></button>
+						</div>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="precio col-sm-4">
-						<div class="plan verde">
+						<div class="plan verde" data-plan="Básico" data-mensual="8990">
 							<p class="nombre">Básico</p>
-							<p class="precio">$9</p>
+							<p class="precio"><span class="monto">$8.990</span><small class="periodo">/mes</small></p>
 							<ul class="caracteristicas">
-								<li>1  Cuenta </li>
+								<li>1 cuenta de correo</li>
 								<li>10 GB de espacio</li>
-								<li>Dominio Personal</li>
+								<li>Dominio personal</li>
 							</ul>
-							<a href="#" class="btn">Contratar Ahora</a>
+							<button type="button" class="btn" data-contratar>Contratar ahora</button>
 						</div>
 					</div>
 
 					<div class="precio col-sm-4">
-						<div class="plan active">
+						<div class="plan active" data-plan="Standard" data-mensual="17990">
+							<span class="popular">Más elegido</span>
 							<p class="nombre">Standard</p>
-							<p class="precio">$19</p>
+							<p class="precio"><span class="monto">$17.990</span><small class="periodo">/mes</small></p>
 							<ul class="caracteristicas">
-								<li>5  Cuenta </li>
+								<li>5 cuentas de correo</li>
 								<li>50 GB de espacio</li>
-								<li>Dominio Personal</li>
+								<li>Dominio personal</li>
 							</ul>
-							<a href="#" class="btn">Contratar Ahora</a>
+							<button type="button" class="btn" data-contratar>Contratar ahora</button>
 						</div>
 					</div>
 
 					<div class="precio col-sm-4">
-						<div class="plan naranja">
+						<div class="plan naranja" data-plan="Premium" data-mensual="49990">
 							<p class="nombre">Premium</p>
-							<p class="precio">$99</p>
+							<p class="precio"><span class="monto">$49.990</span><small class="periodo">/mes</small></p>
 							<ul class="caracteristicas">
-								<li>Cuentas Ilimitadas</li>
+								<li>Cuentas ilimitadas</li>
 								<li>500 GB de espacio</li>
-								<li>Dominios Ilimitados</li>
+								<li>Dominios ilimitados</li>
 							</ul>
-							<a href="#" class="btn">Contratar Ahora</a>
+							<button type="button" class="btn" data-contratar>Contratar ahora</button>
 						</div>
 					</div>
 				</div>
+				<p class="nota-precios">Precios en pesos chilenos, IVA incluido. Cancela cuando quieras.</p>
 			</div>
 		</section>
 
-		<section class="reviews">
+		<section class="reviews" id="opiniones">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="titulo">Lo que nuestros clientes dicen:</h3>
+						<h3 class="titulo">Lo que dicen nuestros clientes</h3>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-12 cliente">
 						<div class="foto">
-							<img src="img/foto1.jpg" alt="">
+							<img src="img/foto1.jpg" alt="José Santos">
 						</div>
 						<div class="review">
-							<p class="texto">“Cras hendrerit lectus massa, at vulputate nibh varius quis. Sed ac consequat ipsum.”</p>
-							<p class="nombre">- José Santos</p>
+							<p class="texto">“Migramos el correo de toda la oficina en una tarde. El equipo de soporte nos acompañó en cada paso.”</p>
+							<p class="nombre">— José Santos, Ferretería Santos</p>
 						</div>
 					</div>
 					<div class="col-md-12 cliente derecha">
 						<div class="foto">
-							<img src="img/foto2.jpg" alt="">
+							<img src="img/foto2.jpg" alt="Diego Muñoz">
 						</div>
 						<div class="review">
-							<p class="texto">“Proin semper sem sed quam semper mollis. Curabitur a purus a augue pulvinar viverra vel quis augue. Donec cursus sit amet lectus maximus tempor”</p>
-							<p class="nombre">- Jhon Doe</p>
+							<p class="texto">“Por fin tenemos nuestros archivos ordenados y respaldados. El plan Standard nos quedó perfecto.”</p>
+							<p class="nombre">— Diego Muñoz, Estudio Creativo DM</p>
 						</div>
 					</div>
 				</div>
@@ -200,32 +205,102 @@
 		</section>
 	</section>
 
-	<footer>
+	<footer id="contacto">
 		<div class="direccion">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-5">
 						<h4 class="titulo">Contacto</h4>
-						<p class="calle">364 Delaware Avenue <br />Massapequa Park, NY 11762</p>
-						<p class="telefono">(140) 322-0934</p>
-						<p class="correo">contacto [arroba] correo.com</p>
+						<p class="calle"><i class="fa fa-map-marker"></i> Santiago, Chile</p>
+						<p class="telefono"><i class="fa fa-clock-o"></i> Lunes a domingo, 9:00 a 21:00 hrs.</p>
+						<p class="correo"><i class="fa fa-comments"></i> Respuesta en menos de 24 horas</p>
 					</div>
-
+					<div class="col-md-7">
+						<form class="form-contacto" id="form-contacto" novalidate>
+							<div class="fila">
+								<div class="campo">
+									<label for="ct-nombre">Nombre</label>
+									<input id="ct-nombre" type="text" autocomplete="name" required>
+									<small class="error"></small>
+								</div>
+								<div class="campo">
+									<label for="ct-email">Correo</label>
+									<input id="ct-email" type="email" autocomplete="email" required>
+									<small class="error"></small>
+								</div>
+							</div>
+							<div class="campo">
+								<label for="ct-mensaje">¿En qué te podemos ayudar?</label>
+								<textarea id="ct-mensaje" rows="3" required></textarea>
+								<small class="error"></small>
+							</div>
+							<button type="submit" class="btn-enviar"><i class="fa fa-paper-plane"></i> Enviar mensaje</button>
+							<p class="ok" id="contacto-ok" hidden><i class="fa fa-check-circle"></i> ¡Mensaje enviado! Te responderemos pronto.</p>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="social">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="youtube" href="#"><i class="fa fa-youtube"></i></a>
-					</div>
-				</div>
+				<p>© <span class="anio">2026</span> Preto Business · Sitio de demostración · Diseño y desarrollo: <a href="../../index.html">Nicolás López</a></p>
 			</div>
 		</div>
 	</footer>
+
+	<!-- Modal de contratación -->
+	<div class="modal-pb" id="modal-plan" hidden role="dialog" aria-modal="true" aria-labelledby="modal-plan-titulo">
+		<div class="modal-pb__caja">
+			<button class="modal-pb__cerrar" type="button" aria-label="Cerrar"><i class="fa fa-times"></i></button>
+
+			<div id="paso-formulario">
+				<p class="modal-pb__etiqueta">Estás contratando</p>
+				<h3 id="modal-plan-titulo">Plan <span id="mp-plan">Standard</span></h3>
+				<p class="modal-pb__precio"><b id="mp-precio">$17.990</b> <span id="mp-ciclo">/mes</span></p>
+
+				<form id="form-plan" novalidate>
+					<div class="campo">
+						<label for="mp-nombre">Nombre y apellido</label>
+						<input id="mp-nombre" type="text" autocomplete="name" required>
+						<small class="error"></small>
+					</div>
+					<div class="campo">
+						<label for="mp-email">Correo</label>
+						<input id="mp-email" type="email" autocomplete="email" required>
+						<small class="error"></small>
+					</div>
+					<div class="campo">
+						<label for="mp-empresa">Empresa</label>
+						<input id="mp-empresa" type="text" autocomplete="organization" required>
+						<small class="error"></small>
+					</div>
+					<div class="campo">
+						<label for="mp-dominio">Dominio deseado <span>(opcional)</span></label>
+						<input id="mp-dominio" type="text" placeholder="miempresa.cl" autocapitalize="off" spellcheck="false">
+						<small class="error"></small>
+					</div>
+					<label class="check"><input type="checkbox" id="mp-terminos"> Acepto los términos del servicio</label>
+					<small class="error" id="mp-terminos-error"></small>
+					<button type="submit" class="btn-enviar btn-enviar--bloque">Comenzar prueba gratis</button>
+					<p class="modal-pb__nota">Demostración: no se realiza ningún cobro.</p>
+				</form>
+			</div>
+
+			<div id="paso-exito" hidden>
+				<div class="exito-icono"><i class="fa fa-check"></i></div>
+				<h3>¡Bienvenido a Preto Business!</h3>
+				<p id="exito-texto"></p>
+				<button type="button" class="btn-enviar" data-cerrar-modal>Entendido</button>
+			</div>
+		</div>
+	</div>
+
+	<a class="nlp-back" href="../../index.html#proyectos" aria-label="Volver al portafolio de Nicolás López">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+		<span><span class="nlp-back__long">Volver al </span><b>portafolio</b></span>
+	</a>
+
+	<script src="js/app.js"></script>
 </body>
 </html>

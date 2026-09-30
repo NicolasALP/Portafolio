@@ -1,0 +1,126 @@
+/* =====================================================
+   Preto Business — mejoras sobre estilos.css
+   ===================================================== */
+html { scroll-behavior: smooth; }
+body { color: #2d353e; overflow-x: hidden; }
+[hidden] { display: none !important; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #4facd3; outline-offset: 2px; }
+
+/* Header */
+header { position: relative; background-position: center; }
+header::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(1, 60, 33, .55), rgba(1, 80, 44, .35)); pointer-events: none; }
+header .container { position: relative; }
+.logo-texto { display: inline-block; color: #fff; font-size: 24px; line-height: 50px; font-weight: 300; text-decoration: none !important; }
+.logo-texto:hover { color: #fff; }
+.logo-texto i { color: #9ff0c4; margin-right: 6px; }
+header .contenedor_logo_menu .menu a { position: relative; text-decoration: none; margin-left: 38px; }
+header .contenedor_logo_menu .menu a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: #fff; transition: right .3s; }
+header .contenedor_logo_menu .menu a:hover::after { right: 0; }
+header .textos { margin: 150px 0 170px; }
+header .textos .etiqueta { display: inline-block; padding: 6px 16px; margin-bottom: 22px; border-radius: 999px; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .35); font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+header .textos .primera_linea { font-size: 44px; line-height: 1.2; }
+header .textos .primera_linea strong { font-weight: 700; }
+header .textos .segunda_linea { font-size: 22px; line-height: 1.5; max-width: 720px; margin-left: auto; margin-right: auto; }
+header .textos .contenedor-btns a { text-decoration: none; transition: all .25s; }
+header .textos .contenedor-btns a.btn-destacado { background: #ddb146; border-color: #ddb146; color: #2d353e; }
+header .textos .contenedor-btns a.btn-destacado:hover { background: #fff; border-color: #fff; }
+
+/* Secciones */
+.main .caracteristicas .caracteristica .icono { transition: transform .35s; }
+.main .caracteristicas .caracteristica:hover .icono { transform: translateY(-6px) rotate(-4deg); }
+.main .fotos .foto { display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 50px; }
+.main .fotos .foto .thumb img { box-shadow: 0 20px 40px -24px rgba(0, 0, 0, .6); }
+.main .fotos .foto .titulo { margin-top: 0; font-weight: 400; }
+.main .clientes .subtitulo-claro { text-align: center; color: #c9d2dc; margin: -24px 0 36px; }
+.main .clientes .cliente img { display: inline-block; opacity: .75; transition: opacity .25s, transform .25s; }
+.main .clientes .cliente:hover img { opacity: 1; transform: scale(1.08); }
+
+/* Planes */
+.facturacion { display: flex; justify-content: center; gap: 4px; width: max-content; margin: -40px auto 50px; padding: 5px; border-radius: 999px; background: rgba(0, 0, 0, .35); }
+.facturacion__op { border: 0; background: transparent; color: #fff; padding: 9px 22px; border-radius: 999px; font-weight: 600; transition: background-color .25s, color .25s; }
+.facturacion__op span { font-size: 12px; color: #9ff0c4; margin-left: 4px; }
+.facturacion__op.activo { background: #fff; color: #2d353e; }
+.facturacion__op.activo span { color: #019851; }
+.main .precios .plan { position: relative; border-radius: 14px; transition: transform .3s; }
+.main .precios .plan:hover { transform: translateY(-6px); }
+.main .precios .plan .precio .periodo { font-size: 18px; margin-left: 4px; opacity: .8; }
+.main .precios .plan .precio .monto { transition: opacity .2s; }
+.main .precios .plan .ahorro { display: block; font-size: 13px; margin-top: -24px; margin-bottom: 20px; opacity: .85; }
+.main .precios .plan .btn { background: transparent; font-weight: 600; }
+.main .precios .plan.active { transform: scale(1.04); }
+.main .precios .plan.active:hover { transform: scale(1.04) translateY(-6px); }
+.popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); padding: 5px 14px; border-radius: 999px; background: #ddb146; color: #2d353e; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.nota-precios { text-align: center; color: #eef2f6; margin-top: 30px; font-size: 14px; }
+
+/* Opiniones */
+.main .reviews .cliente .review .texto { font-style: italic; }
+
+/* Footer / contacto */
+footer .direccion { padding: 60px 0; }
+footer .direccion .titulo { font-weight: 300; }
+footer .direccion p i { width: 20px; color: #9ff0c4; }
+.form-contacto { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); padding: 24px; border-radius: 14px; }
+.form-contacto .fila { display: flex; gap: 14px; }
+.form-contacto .fila .campo { flex: 1; }
+.campo { margin-bottom: 12px; }
+.campo label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.campo label span { font-weight: 400; opacity: .7; }
+.campo input, .campo textarea { width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid #cfd6de; background: #fff; color: #2d353e; font-size: 15px; transition: border-color .2s, box-shadow .2s; }
+.campo input:focus, .campo textarea:focus { outline: none; border-color: #4facd3; box-shadow: 0 0 0 4px rgba(79, 172, 211, .2); }
+.campo.con-error input, .campo.con-error textarea { border-color: #e74c3c; }
+.error { display: block; min-height: 16px; font-size: 12px; color: #ff8a80; margin-top: 3px; }
+.btn-enviar { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 12px 26px; background: #ddb146; color: #2d353e; font-weight: 700; transition: transform .2s, background-color .2s; }
+.btn-enviar:hover { background: #e9c46a; transform: translateY(-2px); }
+.btn-enviar--bloque { width: 100%; margin-top: 8px; }
+.form-contacto .ok { margin: 12px 0 0; color: #9ff0c4; font-weight: 600; }
+footer .social { background: #2d3136; color: #aab4bf; padding: 22px 0 80px; font-size: 14px; }
+footer .social p { margin: 0; }
+footer .social a { all: unset; color: #ddb146; font-weight: 700; cursor: pointer; }
+footer .social a:hover { text-decoration: underline; }
+
+/* Modal de contratación */
+.modal-pb { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(12, 20, 28, .72); backdrop-filter: blur(4px); animation: aparecer .3s ease both; }
+@keyframes aparecer { from { opacity: 0; } }
+.modal-pb__caja { position: relative; width: min(460px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; background: #fff; border-radius: 18px; padding: 30px; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .7); animation: subir .35s ease both; }
+@keyframes subir { from { transform: translateY(20px); opacity: 0; } }
+.modal-pb__cerrar { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: #f0f3f6; color: #2d353e; }
+.modal-pb__cerrar:hover { background: #e2e7ec; }
+.modal-pb__etiqueta { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 700; color: #019851; margin: 0; }
+.modal-pb h3 { font-size: 26px; font-weight: 700; margin: 4px 0 6px; }
+.modal-pb__precio { font-size: 18px; margin-bottom: 18px; color: #5b6570; }
+.modal-pb__precio b { font-size: 26px; color: #2d353e; }
+.modal-pb .campo input { border-color: #d5dce3; }
+.modal-pb .error { color: #e74c3c; }
+.check { display: flex; align-items: center; gap: 8px; font-weight: 400; font-size: 14px; margin: 4px 0 0; cursor: pointer; }
+.modal-pb__nota { text-align: center; font-size: 12px; color: #8a949e; margin: 12px 0 0; }
+#paso-exito { text-align: center; padding: 10px 0; }
+.exito-icono { width: 72px; height: 72px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #019851; color: #fff; font-size: 30px; box-shadow: 0 0 0 10px rgba(1, 152, 81, .15); }
+#paso-exito p { color: #5b6570; margin-bottom: 20px; }
+
+@media screen and (max-width: 992px) {
+	.logo-texto { line-height: 40px; }
+	header .contenedor_logo_menu .menu a { margin: 0 12px; }
+	header .textos { margin: 70px 0 90px; }
+	header .textos .primera_linea { font-size: 30px; }
+	header .textos .segunda_linea { font-size: 18px; }
+	.main .precios .plan.active { transform: none; }
+	.main .precios .plan.active:hover { transform: translateY(-6px); }
+}
+@media screen and (max-width: 768px) {
+	header .contenedor_logo_menu .menu { line-height: 34px; }
+	header .contenedor_logo_menu .menu a { font-size: 15px; margin: 0 8px; }
+	header .textos .contenedor-btns a { width: 100%; margin: 0 0 10px; }
+	.main .fotos .foto .thumb { margin-bottom: 20px; }
+	.main .fotos .foto .derecha { text-align: left; }
+	.main .reviews { padding: 50px 0; }
+	.main .reviews .cliente .foto, .main .reviews .cliente.derecha .foto { width: 100%; float: none; text-align: center; }
+	.main .reviews .cliente .foto img { max-width: 80px; }
+	.main .reviews .cliente .review, .main .reviews .cliente.derecha .review { width: 100%; float: none; text-align: center; padding: 0 10px; }
+	.facturacion { margin-top: -30px; }
+	.form-contacto .fila { flex-direction: column; gap: 0; }
+	footer .direccion { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after { animation: none !important; transition: none !important; }
+}

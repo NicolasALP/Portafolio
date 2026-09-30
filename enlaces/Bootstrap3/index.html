@@ -1,268 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PretoTecnologi · Tienda de tecnología</title>
+	<meta name="description" content="Tienda de tecnología de demostración con catálogo, filtros, buscador y carrito de compras. Desarrollada por Nicolás López.">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<title>Pagina web hecha con Bootstrap</title>
+	<link rel="stylesheet" href="../../assets/css/fonts-demos.css">
+	<link rel="stylesheet" href="css/tienda.css">
+	<link rel="stylesheet" href="../../assets/css/demo-bar.css">
 </head>
-<body>
+<body id="inicio">
 	<header>
-		<nav class="navbar navbar-inverse navbar-static-top">
-			<!-- 
-				navbar-default		Color claro
-				navbar-inverse		Color Oscuro
-
-				navbar-static-top	Menu estatico, sin bordes
-				navbar-fixed-top	Menu fijo arriba
-				navbar-fixed-bottom	Menu fijo abajo
-
-				nota: si utilizamos fixed tenemos que agregar un padding-top al body de 70px
-			 -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
-
-				<!-- Encabezado de nuestro Menu -->
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">PretoTecnologi</a>
+					<a href="#inicio" class="navbar-brand" data-scroll><span class="glyphicon glyphicon-flash"></span> Preto<b>Tecnologi</b></a>
 
-					<!-- Boton hamburguesa, solo visible en dispositivos moviles -->
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#btn-colapsar">
-						<span class="sr-only">Navegacion</span>
+					<!-- Carrito visible también en móviles -->
+					<button type="button" class="btn-carrito-movil visible-xs" data-abrir-carrito aria-label="Abrir carrito">
+						<span class="glyphicon glyphicon-shopping-cart"></span>
+						<span class="badge contador-carrito">0</span>
+					</button>
+
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#btn-colapsar" aria-expanded="false">
+						<span class="sr-only">Navegación</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
 				</div>
 
-				<!-- Elementos del Menu -->
-				<!-- Links y formulario -->
 				<div class="collapse navbar-collapse" id="btn-colapsar">
-
-					<!-- Links del Menu -->
 					<ul class="nav navbar-nav">
-						<li><a href="#">Inicio</a></li>
-						<li>
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Computadoras</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
-								<li><a href="#">Drones</a></li>
-								<li><a href="#">Accesorios</a></li>
+						<li><a href="#inicio" data-scroll>Inicio</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
+							<ul class="dropdown-menu" id="menu-categorias">
+								<li><a href="#productos" data-cat="computadores">Computadores</a></li>
+								<li><a href="#productos" data-cat="notebooks">Notebooks</a></li>
+								<li><a href="#productos" data-cat="smartphones">Smartphones</a></li>
+								<li><a href="#productos" data-cat="tablets">Tablets</a></li>
+								<li><a href="#productos" data-cat="camaras">Cámaras</a></li>
+								<li><a href="#productos" data-cat="accesorios">Accesorios</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#productos" data-cat="todos">Ver todo</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Contacto</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#modal-contacto">Contacto</a></li>
 					</ul>
 
-					<!-- Formulario de Busqueda -->
-					<form class="navbar-form navbar-right" action="" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Buscar">
-							<button type="submit" class="btn btn-default">Buscar</button>
+					<ul class="nav navbar-nav navbar-right hidden-xs">
+						<li>
+							<a href="#" data-abrir-carrito class="link-carrito">
+								<span class="glyphicon glyphicon-shopping-cart"></span> Carrito
+								<span class="badge contador-carrito">0</span>
+							</a>
+						</li>
+					</ul>
+
+					<form class="navbar-form navbar-right" role="search" id="form-busqueda">
+						<div class="input-group">
+							<input type="search" class="form-control" id="buscador" placeholder="Buscar productos…" aria-label="Buscar productos">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default" aria-label="Buscar"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
 						</div>
 					</form>
 				</div>
-			</div>				
+			</div>
 		</nav>
 	</header>
 
 	<section class="main">
 		<div class="container">
 			<!-- Slider / Carousel -->
-			<div class="row">
-				<div class="col-md-12">
-					<div id="slider" class="carousel slide" data-ride="carousel">
-						<!-- Indicadores de posicion -->
-						<ol class="carousel-indicators">
-							<li data-target="#slider" data-slide-to="0" class="active"></li>
-							<li data-target="#slider" data-slide-to="1"></li>
-							<li data-target="#slider" data-slide-to="2"></li>
-						</ol>
-						
-						<!-- Contenedor de Sliders -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<img src="img/s1.jpg" alt="">
-							</div>
-			
-							<div class="item">
-								<img src="img/s2.jpg" alt="">
-							</div>
-			
-							<div class="item">
-								<img src="img/s3.jpg" alt="">
-							</div>
+			<div id="slider" class="carousel slide" data-ride="carousel" data-interval="5000">
+				<ol class="carousel-indicators">
+					<li data-target="#slider" data-slide-to="0" class="active"></li>
+					<li data-target="#slider" data-slide-to="1"></li>
+					<li data-target="#slider" data-slide-to="2"></li>
+				</ol>
+
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="img/s1.jpg" alt="Smart TV en un living moderno">
+						<div class="carousel-caption">
+							<h2>Tu hogar, más inteligente</h2>
+							<p>Accesorios y tecnología para cada rincón de tu casa.</p>
+							<a href="#productos" class="btn btn-primary" data-cat="accesorios">Ver accesorios</a>
 						</div>
-			
-						<!-- Controles -->
-						<a href="#slider" class="left carousel-control" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left"></span>
-							<span class="sr-only">Anterior</span>
-						</a>
-						<a href="#slider" class="right carousel-control" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-							<span class="sr-only">Siguiente</span>
-						</a>
+					</div>
+					<div class="item">
+						<img src="img/s2.jpg" alt="Escritorio con notebook">
+						<div class="carousel-caption">
+							<h2>Arma tu espacio de trabajo</h2>
+							<p>Computadores y notebooks para estudiar, trabajar y crear.</p>
+							<a href="#productos" class="btn btn-primary" data-cat="notebooks">Ver notebooks</a>
+						</div>
+					</div>
+					<div class="item">
+						<img src="img/s3.jpg" alt="Dron volando sobre un bosque">
+						<div class="carousel-caption">
+							<h2>Captura cada momento</h2>
+							<p>Cámaras para creadores de contenido y fotógrafos.</p>
+							<a href="#productos" class="btn btn-primary" data-cat="camaras">Ver cámaras</a>
+						</div>
 					</div>
 				</div>
+
+				<a href="#slider" class="left carousel-control" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Anterior</span>
+				</a>
+				<a href="#slider" class="right carousel-control" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Siguiente</span>
+				</a>
 			</div>
 
-			<div class="row">
-				<div class="col-md-12">
-					<div class="page-header">
-						<h1 class="text-center">Galeria</h1>
-					</div>
-				</div>
+			<ul class="beneficios">
+				<li><span class="glyphicon glyphicon-send"></span> <b>Envío gratis</b> sobre $100.000</li>
+				<li><span class="glyphicon glyphicon-lock"></span> <b>Compra segura</b> y protegida</li>
+				<li><span class="glyphicon glyphicon-refresh"></span> <b>Cambios</b> hasta 30 días</li>
+			</ul>
 
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/1.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Iphone</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
+			<div class="page-header cabecera-productos" id="productos">
+				<h1>Productos</h1>
+				<div class="filtros" id="filtros" role="toolbar" aria-label="Filtrar por categoría">
+					<button class="btn btn-default btn-sm active" data-cat="todos">Todos</button>
+					<button class="btn btn-default btn-sm" data-cat="computadores">Computadores</button>
+					<button class="btn btn-default btn-sm" data-cat="notebooks">Notebooks</button>
+					<button class="btn btn-default btn-sm" data-cat="smartphones">Smartphones</button>
+					<button class="btn btn-default btn-sm" data-cat="tablets">Tablets</button>
+					<button class="btn btn-default btn-sm" data-cat="camaras">Cámaras</button>
+					<button class="btn btn-default btn-sm" data-cat="accesorios">Accesorios</button>
 				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/2.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Mac</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/3.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Canon</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/4.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Apple Watch</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/5.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Keyboard</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/6.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Ipad</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/7.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Macbook</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="thumbnail">
-						<a href="#">
-							<img src="img/8.jpg" alt="">
-						</a>
-						<div class="caption">
-							<h3>Camera</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>
-								<a href="#" class="btn btn-primary">Comprar</a>
-								<a href="#" class="btn btn-default">Detalles</a>
-							</p>
-						</div>
-					</div>
-				</div>
+				<p class="estado-filtro" id="estado-filtro" aria-live="polite"></p>
 			</div>
+
+			<div class="row" id="grid-productos"></div>
+
+			<div class="sin-resultados" id="sin-resultados" hidden>
+				<span class="glyphicon glyphicon-search"></span>
+				<p>No encontramos productos para tu búsqueda.</p>
+				<button class="btn btn-default" id="limpiar-filtros">Ver todos los productos</button>
+			</div>
+			<noscript><p class="alert alert-warning">Activa JavaScript para ver el catálogo.</p></noscript>
 		</div>
 	</section>
 
-	<footer>
+	<footer class="footer-tienda">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<hr>
-					<p class="pull-left">
-						nicolaslopezpasten.com
-						<a href="#">Acerca de</a>
-						<a href="#">Contacto</a>
-					</p>
-					<p class="pull-right"><a href="#">Subir en Pagina</a></p>
-					<br>
+				<div class="col-sm-6">
+					<p class="marca"><span class="glyphicon glyphicon-flash"></span> Preto<b>Tecnologi</b></p>
+					<p class="text-muted">Tienda de demostración · Diseño y desarrollo: <a href="../../index.html">Nicolás López</a></p>
+				</div>
+				<div class="col-sm-6 text-right enlaces-footer">
+					<a href="#" data-toggle="modal" data-target="#modal-acerca">Acerca de</a>
+					<a href="#" data-toggle="modal" data-target="#modal-contacto">Contacto</a>
+					<a href="#inicio" data-scroll><span class="glyphicon glyphicon-arrow-up"></span> Subir</a>
 				</div>
 			</div>
 		</div>
 	</footer>
 
+	<!-- Aviso de producto agregado -->
+	<div class="aviso" id="aviso" role="status" aria-live="polite">
+		<span class="glyphicon glyphicon-ok-sign"></span> <span id="aviso-texto">Producto agregado</span>
+		<a href="#" data-abrir-carrito>Ver carrito</a>
+	</div>
+
+	<!-- Modal: detalle de producto -->
+	<div class="modal fade" id="modal-detalle" tabindex="-1" role="dialog" aria-labelledby="detalle-titulo">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="detalle-titulo">Producto</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-sm-6"><img id="detalle-img" class="img-responsive img-rounded" src="img/1.jpg" alt=""></div>
+						<div class="col-sm-6">
+							<span class="label label-info" id="detalle-cat"></span>
+							<p class="precio-grande" id="detalle-precio"></p>
+							<p id="detalle-desc"></p>
+							<ul class="lista-specs" id="detalle-specs"></ul>
+							<div class="form-inline agregar-detalle">
+								<div class="input-group cantidad">
+									<span class="input-group-btn"><button class="btn btn-default" type="button" data-cant="-1" aria-label="Menos">−</button></span>
+									<input type="text" class="form-control text-center" id="detalle-cant" value="1" aria-label="Cantidad" inputmode="numeric">
+									<span class="input-group-btn"><button class="btn btn-default" type="button" data-cant="1" aria-label="Más">+</button></span>
+								</div>
+								<button class="btn btn-primary" id="detalle-agregar"><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carrito</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: carrito -->
+	<div class="modal fade" id="modal-carrito" tabindex="-1" role="dialog" aria-labelledby="carrito-titulo">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="carrito-titulo"><span class="glyphicon glyphicon-shopping-cart"></span> Tu carrito</h4>
+				</div>
+				<div class="modal-body">
+					<div id="carrito-vacio" class="carrito-vacio">
+						<span class="glyphicon glyphicon-shopping-cart"></span>
+						<p>Tu carrito está vacío.</p>
+						<button class="btn btn-primary" data-dismiss="modal" data-ir-productos>Ir a comprar</button>
+					</div>
+					<div id="carrito-lleno">
+						<div class="table-responsive">
+							<table class="table tabla-carrito">
+								<thead><tr><th>Producto</th><th class="text-center">Cantidad</th><th class="text-right">Subtotal</th><th></th></tr></thead>
+								<tbody id="carrito-items"></tbody>
+							</table>
+						</div>
+						<div class="resumen">
+							<p><span>Subtotal</span><b id="res-subtotal">$0</b></p>
+							<p><span>Envío</span><b id="res-envio">$0</b></p>
+							<p class="total"><span>Total</span><b id="res-total">$0</b></p>
+							<p class="nota-envio" id="nota-envio"></p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" id="carrito-acciones">
+					<button class="btn btn-link text-danger pull-left" id="vaciar-carrito"><span class="glyphicon glyphicon-trash"></span> Vaciar</button>
+					<button class="btn btn-default" data-dismiss="modal">Seguir comprando</button>
+					<button class="btn btn-success" id="ir-checkout">Finalizar compra <span class="glyphicon glyphicon-chevron-right"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: checkout -->
+	<div class="modal fade" id="modal-checkout" tabindex="-1" role="dialog" aria-labelledby="checkout-titulo">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="checkout-titulo">Datos de despacho</h4>
+				</div>
+				<form id="form-checkout" novalidate>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="c-nombre">Nombre completo</label>
+							<input type="text" class="form-control" id="c-nombre" autocomplete="name" required>
+							<span class="help-block"></span>
+						</div>
+						<div class="form-group">
+							<label for="c-email">Correo</label>
+							<input type="email" class="form-control" id="c-email" autocomplete="email" required>
+							<span class="help-block"></span>
+						</div>
+						<div class="row">
+							<div class="col-sm-7 form-group">
+								<label for="c-direccion">Dirección</label>
+								<input type="text" class="form-control" id="c-direccion" autocomplete="street-address" required>
+								<span class="help-block"></span>
+							</div>
+							<div class="col-sm-5 form-group">
+								<label for="c-comuna">Comuna</label>
+								<input type="text" class="form-control" id="c-comuna" autocomplete="address-level2" required>
+								<span class="help-block"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Forma de pago</label>
+							<div class="radio"><label><input type="radio" name="pago" value="Transferencia bancaria" checked> Transferencia bancaria</label></div>
+							<div class="radio"><label><input type="radio" name="pago" value="Pago contra entrega"> Pago contra entrega</label></div>
+							<div class="radio"><label><input type="radio" name="pago" value="Retiro en tienda"> Retiro en tienda</label></div>
+						</div>
+						<p class="total-checkout">Total a pagar: <b id="checkout-total">$0</b></p>
+						<p class="text-muted small"><span class="glyphicon glyphicon-info-sign"></span> Compra de demostración: no se realizan cobros ni despachos reales.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="volver-carrito">Volver al carrito</button>
+						<button type="submit" class="btn btn-success">Confirmar pedido</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: pedido confirmado -->
+	<div class="modal fade" id="modal-exito" tabindex="-1" role="dialog" aria-labelledby="exito-titulo">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content text-center">
+				<div class="modal-body exito">
+					<span class="glyphicon glyphicon-ok-circle"></span>
+					<h3 id="exito-titulo">¡Pedido confirmado!</h3>
+					<p>Número de pedido <b id="exito-numero"></b></p>
+					<p class="text-muted" id="exito-detalle"></p>
+					<button class="btn btn-primary btn-block" data-dismiss="modal">Seguir comprando</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: contacto -->
+	<div class="modal fade" id="modal-contacto" tabindex="-1" role="dialog" aria-labelledby="contacto-titulo">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="contacto-titulo">Contáctanos</h4>
+				</div>
+				<form id="form-contacto" novalidate>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="ct-nombre">Nombre</label>
+							<input type="text" class="form-control" id="ct-nombre" required>
+							<span class="help-block"></span>
+						</div>
+						<div class="form-group">
+							<label for="ct-email">Correo</label>
+							<input type="email" class="form-control" id="ct-email" required>
+							<span class="help-block"></span>
+						</div>
+						<div class="form-group">
+							<label for="ct-mensaje">Mensaje</label>
+							<textarea class="form-control" id="ct-mensaje" rows="4" required></textarea>
+							<span class="help-block"></span>
+						</div>
+						<div class="alert alert-success" id="contacto-ok" hidden><span class="glyphicon glyphicon-ok"></span> ¡Gracias! Te responderemos dentro de 24 horas hábiles.</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary">Enviar mensaje</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal: acerca de -->
+	<div class="modal fade" id="modal-acerca" tabindex="-1" role="dialog" aria-labelledby="acerca-titulo">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="acerca-titulo">Acerca de PretoTecnologi</h4>
+				</div>
+				<div class="modal-body">
+					<p>PretoTecnologi es una tienda de demostración creada para mostrar un e-commerce completo construido con <b>Bootstrap 3</b>, <b>jQuery</b> y <b>JavaScript</b>:</p>
+					<ul>
+						<li>Catálogo generado dinámicamente con filtros por categoría y buscador.</li>
+						<li>Ficha de producto, carrito con cantidades y cálculo de envío.</li>
+						<li>Carrito guardado en el navegador (LocalStorage) y proceso de compra con validación.</li>
+					</ul>
+					<p class="text-muted">Diseño y desarrollo: <a href="../../index.html">Nicolás López</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a class="nlp-back" href="../../index.html#proyectos" aria-label="Volver al portafolio de Nicolás López">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+		<span><span class="nlp-back__long">Volver al </span><b>portafolio</b></span>
+	</a>
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/tienda.js"></script>
 </body>
 </html>
